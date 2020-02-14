@@ -50,9 +50,9 @@
         </div>
     </div>
 </header>
-<div class="span12" id="divMain">
+
     <?=$contenu; ?>
-</div>
+
 
 <!-- End footer Area -->
 <script src="js/vendor/jquery-2.2.4.min.js"></script>
