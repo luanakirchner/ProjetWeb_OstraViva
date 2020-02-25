@@ -23,140 +23,43 @@ p {font-size: 16px;}
 }
 .container-fluid {
     padding-top: 70px;
-    padding-bottom: 70px;
-}
-.navbar {
-    padding-top: 15px;
-    padding-bottom: 15px;
-    border: 0;
-    border-radius: 0;
-    margin-bottom: 0;
-    font-size: 12px;
-    letter-spacing: 5px;
-}
-.navbar-nav  li a:hover {
-    color: #1abc9c !important;
-}
-.margid{
-    margin: 15px;
-}
-.margi2{
-    padding: 10px;
-}
-.navbar-default{
-    background-color: inherit;
-}
-nav{
-    display: flex;
-    justify-content: flex-end;
-}
-.contents_start{
-  background-color:red;
-   width: 100%;
-    height: auto;
-
-	
-}
-.contenu_nav{
-    height: 15%;
-}
-#Image_perso{
-    border-radius: 100px;
-    border: aliceblue 3px solid;
-    opacity: 1;
-    -webkit-transition: .3s ease-in-out;
-    transition: .3s ease-in-out;
-}
-#Image_perso:hover{
-    opacity: .7
+    padding-bottom: 20px;
 }
 
-.contenu__start_centre{
-    width: 100%;
-    height: 80%;
+.menuText{
+    color: gray;
+    font-size:20px;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.start_nom{
-    align-items: center;
-    justify-content: center;
-}
-.start_profession{
-    margin-top: 0px;
-}
-.start_footer{
+
+.endPage{
+    background-color: #F2EBDF;
+    height: 250px;
     width: 100%;
-    height: 15%;
-    display: flex;
-    align-items: flex-end;
-    justify-content: center;
-}
-
-.clolor_white{
-    color: white;
-}
-.contents_cv{
-    margin-top: 5px;
-    width: 100%;
-    height: 650px;
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-}
-.white{
-    background-color: white;
-}
-.gris{
-    background-color: darkgrey;
-}
-
-.experience_contenu{
-    width: 40%;
-    height: 80%;
-}
-.competences_contenu{
-    width: 40%;
-    height: 80%;
-}
-
-.contents_parcour{
-    margin-top: 5px;
-    width: 100%;
-    background-color: #9d9d9d;
-    height: 650px;
-}
-.carre{
-    border: 1px black solid;
-}
-
-@media screen and (max-width: 767px) {
-    .sidenav {
-        height: auto;
-        padding: 15px;
-    }
-    .row.content {height: auto;}
-    nav{
-        display: inherit;
-    }
-    a{
-        color: white;
-    }
-    .navbar-nav{margin-left: 15px;}
-    .contents_cv{
-        flex-direction: column;
-    }
-    .competences_contenu{
-        width: 90%;
-    }
-    .experience_contenu{
-        width: 90%;
-    }
-}
-
-.imgHome{
-
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.infoEndPage{
+    background-color: #593C32;
+    height: 90%;
+    width: 95%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+
+}
+.addresseEnd{
+    background-color: #F2EBDF;
+    height: 15%;
+    margin-top: 3%;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+
 }

@@ -36,15 +36,15 @@
     <div class="container main-menu">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
-                <a href="index.php"><img src="Image/Logo.JPG" alt="" title="" width="150px"/></a>
+                <a href="index.php?action=home"><img src="Image/Logo.JPG" alt="" title="" width="150px" /></a>
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li><a href="index.php?action=home">Accueil</a></li>
-                    <li><a href="index.php">Qui sommes nous</a></li>
-                    <li><a href="index.php">Nous menus</a></li>
-                    <li><a href="index.php">Réservations</a></li>
-                    <li><a href="index.php">Contact</a></li>
+                    <li><a href="index.php?action=homel">Accueil</a></li>
+                    <li><a href="about.html">Qui sommes nous</a></li>
+                    <li><a href="services.html">Nous menus</a></li>
+                    <li><a href="portfolio.html">Réservations</a></li>
+                    <li><a href="price.html">Contact</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -53,7 +53,16 @@
 
     <?=$contenu; ?>
 
-
+<div class="endPage">
+    <div class="infoEndPage">
+        <div class="addresseEnd">
+            <h3 style="color: gray;">Nous trouver</h3>
+            <div>
+                test
+            </div>
+        </div>
+    </div>
+</div>
 <!-- End footer Area -->
 <script src="js/vendor/jquery-2.2.4.min.js"></script>
 <script src="js/popper.min.js"></script>
