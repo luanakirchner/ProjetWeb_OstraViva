@@ -21,9 +21,18 @@ ob_start();
     </div>
 </div>
 <div class=" menuText">
-    <div>
-        <h3>Vien nous visitéer</h3>
-        Réserver une table
+    <div style="text-align: justify">
+        <span><h3 style="background-color: white">nous visitéer</h3></span>
+        egnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
+        considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo
+        tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione.
+        È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla
+        videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli
+        gnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
+        considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo
+        tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione.
+        È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla
+        videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli
     </div>
 
 </div>

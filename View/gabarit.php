@@ -30,9 +30,10 @@
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/main.css">
     <link rel="stylesheet" href="css/Accueil.css">
+    <link rel="stylesheet" href="css/QuiSommesNous.css">
 </head>
 <body>
-<header id="header">
+<header id="header" style="background-color:  #F2EBDF; height: 8%">
     <div class="container main-menu">
         <div class="row align-items-center justify-content-between d-flex">
             <div id="logo">
@@ -41,28 +42,30 @@
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
                     <li><a href="index.php?action=homel">Accueil</a></li>
-                    <li><a href="about.html">Qui sommes nous</a></li>
-                    <li><a href="services.html">Nous menus</a></li>
+                    <li><a href="index.php?action=QuiSommesNous">Qui sommes nous</a></li>
+                    <li><a href="index.php?action=Contact">Nous menus</a></li>
                     <li><a href="portfolio.html">Réservations</a></li>
-                    <li><a href="price.html">Contact</a></li>
+                    <li><a href="index.php?action=Contact">Contact</a></li>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
     </div>
 </header>
-
+<div style="height: 80%">
     <?=$contenu; ?>
-
-<div class="endPage">
-    <div class="infoEndPage">
-        <div class="addresseEnd">
-            <h3 style="color: gray;">Nous trouver</h3>
-            <div>
-                test
+</div>
+<footer>
+    <div class="endPage">
+        <div class="infoEndPage">
+            <div class="addresseEnd">
+                <h3 class="NousTrouverend">Nous trouver</h3>
+                <div class="infoAddresseEnd">
+                    test
+                </div>
             </div>
         </div>
     </div>
-</div>
+</footer>
 <!-- End footer Area -->
 <script src="js/vendor/jquery-2.2.4.min.js"></script>
 <script src="js/popper.min.js"></script>
