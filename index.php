@@ -14,6 +14,12 @@ if(isset($_GET['action'])){
         case 'Contact':
             Contact();
             break;
+        case 'LoginAdmPrive':
+            LoginAdmPrive();
+            break;
+        case 'NousMenus':
+            NousMenus();
+            break;
         default:
             home();
     }

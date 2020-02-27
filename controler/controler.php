@@ -10,3 +10,9 @@ function QuiSommesNous(){
 function Contact(){
     require 'View/Contact.php';
 }
+function LoginAdmPrive(){
+    require 'View/LoginAdmPrive.php';
+}
+function NousMenus(){
+    require 'View/NousMenus.php';
+}
