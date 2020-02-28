@@ -39,6 +39,7 @@ function NousMenus(){
     require 'View/NousMenus.php';
 }
 function Logout(){
+    $_SESSION = array();
     session_destroy();
     $_GET['action'] = "home";
     require 'View/home.php';

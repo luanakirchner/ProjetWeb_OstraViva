@@ -3,8 +3,36 @@ ob_start();
 
 ?>
 <div class="container-fluid text-center" style="padding-bottom: inherit">
-    <img src="Image/IMG_0943 -2.jpg" width="100%" height="auto">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active" >
+                <img class="d-block w-100" src="Image/IMG_0943Carous3e.jpg" style="height: 300px" alt="First slide">
+            </div>
+            <div class="carousel-item">
+                <img class="d-block w-100" src="Image/IMG_0945.jpg" style="height: 300px" >
+            </div>
+            <div class="carousel-item" >
+                <img class="d-block w-100" src="Image/IMG_0941Carousel.jpg" style="height: 300px"  alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
 </div>
+<?php if(isset($_SESSION['username'])){
+    echo "<p>salut</p>";
+} ?>
 <!-- Third Container (Grid) -->
 <div class="container-fluid bg-3 text-center" style="padding-top: 30px">
     <h3 class="margin" style="margin-bottom: 20px">Where To Find Me?</h3><br>
@@ -36,6 +64,7 @@ ob_start();
     </div>
 
 </div>
+
 
 
 <?php

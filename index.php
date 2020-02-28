@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 require 'controler/controler.php';
 if(isset($_GET['action'])){
     $action = $_GET['action'];
