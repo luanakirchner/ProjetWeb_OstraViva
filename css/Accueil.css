@@ -103,8 +103,8 @@ p {font-size: 16px;}
     background-color: #593C32;
     color :#F2EBDF;
 }
-#MenuDuJour{
-    visibility: inherit;
+.TextAlignCenter{
+    text-align: center;
 }
 .overlay-image{
     position: relative;

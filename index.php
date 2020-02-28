@@ -15,10 +15,13 @@ if(isset($_GET['action'])){
             Contact();
             break;
         case 'LoginAdmPrive':
-            LoginAdmPrive();
+            LoginAdmPrive($_POST);
             break;
         case 'NousMenus':
             NousMenus();
+            break;
+        case 'Logout':
+            Logout();
             break;
         default:
             home();

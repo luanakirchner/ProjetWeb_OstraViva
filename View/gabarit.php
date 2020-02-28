@@ -46,6 +46,9 @@
                     <li><a href="index.php?action=NousMenus">Nous menus</a></li>
                     <li><a href="portfolio.html">Réservations</a></li>
                     <li><a href="index.php?action=Contact">Contact</a></li>
+                    <?php if (isset($_SESSION['username'])):?>
+                        <li><a href="index.php?action=Logout">Logout</a></li>
+                    <?php endif; ?>
                 </ul>
             </nav><!-- #nav-menu-container -->
         </div>
@@ -162,6 +165,7 @@
 <script src="js/owl.carousel.min.js"></script>
 <script src="js/mail-script.js"></script>
 <script src="js/main.js"></script>
+
 
 </body>
 </html>
