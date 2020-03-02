@@ -17,6 +17,7 @@
     <title>Personal</title>
 
     <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
+
     <!--
     CSS
     ============================================= -->
@@ -59,7 +60,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="page-footer font-small indigo" style="background-color: #F2EBDF;">
+<footer class="page-footer font-small indigo" style="background-color: #F2EBDF;margin-top: 20px;">
 
     <!-- Footer Links -->
     <div class="container">
@@ -92,61 +93,27 @@
                     </p>
             </div>
             <!-- Grid column -->
-
         </div>
-        <!-- Grid row-->
-        <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
-
-        <!-- Grid row-->
-        <div class="row pb-3">
-
             <!-- Grid column -->
-            <div class="col-md-12">
-
-                <div class="mb-5 flex-center">
-
+            <div class="col-md-12" style="text-align: center">
                     <!-- Facebook -->
-                    <a class="fb-ic">
-                        <i class="fab fa-facebook-f fa-lg white-text mr-4"> </i>
+                    <a  href="QuiSommesNous.php">
+                        <img src="Image/Facebook.png">
                     </a>
-                    <!-- Twitter -->
-                    <a class="tw-ic">
-                        <i class="fab fa-twitter fa-lg white-text mr-4"> </i>
+                    <!-- Facebook -->
+                    <a  href="QuiSommesNous.php">
+                        <img src="Image/Facebook.png">
                     </a>
-                    <!-- Google +-->
-                    <a class="gplus-ic">
-                        <i class="fab fa-google-plus-g fa-lg white-text mr-4"> </i>
+                    <!-- Facebook -->
+                    <a  href="QuiSommesNous.php">
+                        <img src="Image/Facebook.png">
                     </a>
-                    <!--Linkedin -->
-                    <a class="li-ic">
-                        <i class="fab fa-linkedin-in fa-lg white-text mr-4"> </i>
-                    </a>
-                    <!--Instagram-->
-                    <a class="ins-ic">
-                        <i class="fab fa-instagram fa-lg white-text mr-4"> </i>
-                    </a>
-                    <!--Pinterest-->
-                    <a class="pin-ic">
-                        <i class="fab fa-pinterest fa-lg white-text"> </i>
-                    </a>
-
-                </div>
-
             </div>
             <!-- Grid column -->
-
         </div>
-        <!-- Grid row-->
-
+    <div class="footer-copyright text-center py-3">
+        © 2020 Luana Kirchner Bannwart
     </div>
-    <!-- Footer Links -->
-
-    <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2020 Copyright:
-        <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
-    </div>
-    <!-- Copyright -->
-
 </footer>
 
 <!-- End footer Area -->

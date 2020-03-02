@@ -23,6 +23,9 @@ if(isset($_GET['action'])){
         case 'Logout':
             Logout();
             break;
+        case 'Menu':
+            Menu($_GET['choix']);
+            break;
         default:
             home();
     }

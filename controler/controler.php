@@ -44,3 +44,7 @@ function Logout(){
     $_GET['action'] = "home";
     require 'View/home.php';
 }
+function Menu($choix){
+    $_GET['nomChoixMenu'] = $choix;
+    require 'View/Menu.php';
+}

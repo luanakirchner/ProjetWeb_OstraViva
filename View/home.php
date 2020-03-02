@@ -11,13 +11,15 @@ ob_start();
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active" >
-                <img class="d-block w-100" src="Image/IMG_0943Carous3e.jpg" style="height: 300px" alt="First slide">
+                <div class="ImagesDebout" style="background-image: url('Image/IMG_0941Carousel.jpg')"></div>
             </div>
             <div class="carousel-item">
-                <img class="d-block w-100" src="Image/IMG_0945.jpg" style="height: 300px" >
+                <div class="ImagesDebout" style="background-image: url('Image/IMG_0945.jpg')"></div>
+                <!--<img class="d-block w-100" src="Image/IMG_0945.jpg" style="height: 300px" >-->
             </div>
             <div class="carousel-item" >
-                <img class="d-block w-100" src="Image/IMG_0941Carousel.jpg" style="height: 300px"  alt="Third slide">
+                <div class="ImagesDebout" style="background-image: url('Image/IMG_0943Carous3e.jpg')"></div>
+
             </div>
         </div>
         <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
