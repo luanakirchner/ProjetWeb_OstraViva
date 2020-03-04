@@ -26,6 +26,9 @@ if(isset($_GET['action'])){
         case 'Menu':
             Menu($_GET['choix']);
             break;
+        case 'DisplayMenu':
+            DisplayMenu($_GET['choix']);
+            break;
         default:
             home();
     }

@@ -25,3 +25,20 @@ function createSession($username){
 
     $_SESSION['username'] = $username;
 }
+
+function DisplayMenuWhereCategory($category){
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $menus = 'SELECT `name`,`description`,`price` FROM `dishes` WHERE Categorys_id ='.$strSeparator.$category.$strSeparator.';';
+    $resultatsmenu = executeQuerySelect($menus);
+    echo $menus;
+    return $resultatsmenu;
+}
+function Display(){
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $menus = 'SELECT `name`,`description`,`price` FROM `dishes`';
+    $resultatsmenu = executeQuerySelect($menus);
+    echo $menus;
+    return $resultatsmenu;
+}

@@ -21,7 +21,7 @@ function LoginAdmPrive($LoginRequest){
             // Header("Location:Index.php?action=home");
             $_GET['loginError'] = false;
             $_GET['action'] = "home";
-            require 'view/home.php';
+            require 'View/home.php';
         }
         else{
             $_GET['loginError'] = true;
@@ -47,4 +47,9 @@ function Logout(){
 function Menu($choix){
     $_GET['nomChoixMenu'] = $choix;
     require 'View/Menu.php';
+}
+
+function DisplayMenu($category){
+    $resultMenus = DisplayMenuWhereCategory($category);
+    require "View/Menu.php";
 }

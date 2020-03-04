@@ -10,7 +10,7 @@ function openDBConnexion (){
     $tempDbConnexion = null;
 
     $sqlDriver = 'mysql';
-    $hostname = 'localhost';
+    $hostname = '127.0.0.1';
     $port = 3306;
     $charset = 'utf8';
     $dbName = 'ostraviva';

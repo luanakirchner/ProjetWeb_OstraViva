@@ -32,9 +32,6 @@ ob_start();
         </a>
     </div>
 </div>
-<?php if(isset($_SESSION['username'])){
-    echo "<p>salut</p>";
-} ?>
 <!-- Third Container (Grid) -->
 <div class="container-fluid bg-3 text-center" style="padding-top: 30px">
     <h3 class="margin" style="margin-bottom: 20px">Where To Find Me?</h3><br>
