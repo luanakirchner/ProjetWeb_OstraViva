@@ -37,13 +37,13 @@ ob_start();
     <h3 class="margin" style="margin-bottom: 20px">Where To Find Me?</h3><br>
     <div class="row">
         <div class="col-lg-4" >
-            <img src="Image/RagoutPoisson.jpg" class="img-responsive margin" style="max-width: 80%; " alt="Image">
+            <img src="Image/RagoutPoisson.jpg" class="img-responsive margin overlay-image" style="max-width: 80%; " alt="Image">
         </div>
         <div class="col-lg-4">
-            <img src="Image/FruitDeMer.jpg" class="img-responsive margin" style=" max-width: 80%;" alt="Image">
+            <img src="Image/FruitDeMer.jpg" class="img-responsive margin overlay-image" style=" max-width: 80%;" alt="Image">
         </div>
         <div class="col-lg-4">
-            <img src="Image/Moule.JPG" class="img-responsive margin" style="max-width: 80%;" alt="Image">
+            <img src="Image/Moule.JPG" class="img-responsive margin overlay-image" style="max-width: 80%;" alt="Image">
         </div>
     </div>
     </div>

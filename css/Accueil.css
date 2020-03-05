@@ -109,8 +109,8 @@ p {font-size: 16px;}
     position: relative;
 }
 .overlay-image:hover{
-    opacity: 0.5;
-    transition: .5s ease;
+    opacity: 0.70;
+    transition: .3s ease;
 }
 .RowMenu{
     margin: auto;
@@ -137,11 +137,28 @@ p {font-size: 16px;}
     margin-top: 30px;
 }
 .margin1Left50{
-    margin-left: 50px;
+    margin-left: 70px;
+}
+.TextPrixAlign{
+    align-self: center;
+    text-align: right;
+}
+.ImageRonde{
+    -webkit-border-radius:50px;
+    -moz-border-radius:50px;
+    border-radius:50px;
+}
+.ModuloMenu2{
+    background-color:white;
+    border-bottom:#D7D996 4px solid;
+    border-top:#D7D996 4px solid
 }
 
 @media screen and (max-width: 570px) {
    .margin1Left50{
        margin-left: 0px;
    }
+    .TextPrixAlign{
+        text-align: center;
+    }
 }
