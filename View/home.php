@@ -11,14 +11,14 @@ ob_start();
         </ol>
         <div class="carousel-inner">
             <div class="carousel-item active" >
-                <div class="ImagesDebout" style="background-image: url('Image/IMG_0941Carousel.jpg')"></div>
+                <div class="ImagesDebout" style="background-image: url('Image/Carousel_1_Huitres.jpg')"></div>
             </div>
             <div class="carousel-item">
-                <div class="ImagesDebout" style="background-image: url('Image/IMG_0945.jpg')"></div>
+                <div class="ImagesDebout" style="background-image: url('Image/Carousel_2_Paysage.jpg')"></div>
                 <!--<img class="d-block w-100" src="Image/IMG_0945.jpg" style="height: 300px" >-->
             </div>
             <div class="carousel-item" >
-                <div class="ImagesDebout" style="background-image: url('Image/IMG_0943Carous3e.jpg')"></div>
+                <div class="ImagesDebout" style="background-image: url('Image/Carousel_3_Huitres.jpg')"></div>
 
             </div>
         </div>
@@ -37,14 +37,15 @@ ob_start();
     <h3 class="margin" style="margin-bottom: 20px">Where To Find Me?</h3><br>
     <div class="row">
         <div class="col-lg-4" >
-            <img src="Image/IMG_0940_600.jpg" class="img-responsive margin" style="max-width: 80%; " alt="Image">
+            <img src="Image/RagoutPoisson.jpg" class="img-responsive margin" style="max-width: 80%; " alt="Image">
         </div>
         <div class="col-lg-4">
-            <img src="Image/IMG_0939_600.jpg" class="img-responsive margin" style=" max-width: 80%;" alt="Image">
+            <img src="Image/FruitDeMer.jpg" class="img-responsive margin" style=" max-width: 80%;" alt="Image">
         </div>
         <div class="col-lg-4">
-            <img src="Image/JIDT8592_600.jpg" class="img-responsive margin" style="max-width: 80%;" alt="Image">
+            <img src="Image/Moule.JPG" class="img-responsive margin" style="max-width: 80%;" alt="Image">
         </div>
+    </div>
     </div>
 </div>
 <div class=" menuText">

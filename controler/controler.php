@@ -50,6 +50,12 @@ function Menu($choix){
 }
 
 function DisplayMenu($category){
-    $resultMenus = DisplayMenuWhereCategory($category);
+    if($category =="Autres"){
+        $resultMenus = DisplayMenuWhereAutres();
+    }
+    else{
+        $resultMenus = DisplayMenuWhereCategory($category);
+    }
+    $_GET['nomChoixMenu'] = $category;
     require "View/Menu.php";
 }

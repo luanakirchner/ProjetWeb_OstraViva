@@ -21,13 +21,13 @@ ob_start();
         <div class="container-fluid bg-3 text-center" style="padding-top: 30px">
             <div class="row">
                 <div class="col-lg-4" >
-                    <img src="Image/GPNZ4258.JPG" class="img-responsive margin" style="max-width: 100%; max-height: 200px; " alt="Image">
+                    <img src="Image/Paysage_1.JPG" class="img-responsive margin" style="max-width: 100%; max-height: 200px; " alt="Image">
                 </div>
                 <div class="col-lg-4">
-                    <img src="Image/XMQF7778.JPG" class="img-responsive margin" style=" max-width: 100%;max-height: 200px;" alt="Image">
+                    <img src="Image/Restaurant.JPG" class="img-responsive margin" style=" max-width: 100%;max-height: 200px;" alt="Image">
                 </div>
                 <div class="col-lg-4">
-                    <img src="Image/IMG_0945.jpg" class="img-responsive margin" style="max-width: 100%;max-height: 200px;" alt="Image">
+                    <img src="Image/Carousel_2_Paysage.jpg" class="img-responsive margin" style="max-width: 100%;max-height: 200px;" alt="Image">
                 </div>
             </div>
         </div>

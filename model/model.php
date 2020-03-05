@@ -29,16 +29,14 @@ function createSession($username){
 function DisplayMenuWhereCategory($category){
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $menus = 'SELECT `name`,`description`,`price` FROM `dishes` WHERE Categorys_id ='.$strSeparator.$category.$strSeparator.';';
+    $menus = 'SELECT `name`,`description`,`price`,`photo` FROM `Dishes` WHERE `Categorys_id` = (SELECT id FROM Categorys WHERE Categorys.category= '.$strSeparator.$category.$strSeparator.');';
     $resultatsmenu = executeQuerySelect($menus);
-    echo $menus;
     return $resultatsmenu;
 }
-function Display(){
+function DisplayMenuWhereAutres(){
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $menus = 'SELECT `name`,`description`,`price` FROM `dishes`';
+    $menus = 'SELECT `name`,`description`,`price`,`photo` FROM `Dishes` WHERE Categorys_id != 2 AND Categorys_id != 7 AND Categorys_id != 3; ';
     $resultatsmenu = executeQuerySelect($menus);
-    echo $menus;
     return $resultatsmenu;
 }
