@@ -1,4 +1,8 @@
 <?php
+/*Luana Kirchner Bannwart
+ * 02/2020
+ * Version 1.0
+ */
 ob_start();
 
 ?>
@@ -15,7 +19,7 @@ ob_start();
     Rue du Cabaraquara <br>
     Guaratuba - PR <br>
     Brésil <br>
-    +55 41 999978-9766 <br>
+    +55 41 83280-000 <br>
     Ouver tous les weekends
 
     <div style="margin-top: 20px">

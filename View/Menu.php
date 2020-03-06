@@ -1,10 +1,14 @@
 <?php
+/*Luana Kirchner Bannwart
+ * 02/2020
+ * Version 1.0
+ */
 ob_start();
 //D7D996
 ?>
 <div class="container-fluid text-left" style="padding-bottom: inherit;">
     <div class="TitreH2Border">
-        <h2><?=@$_GET['nomChoixMenu'];?></h2>
+        <a href="index.php?action=NousMenus"><h2>Menu / <?=@$_GET['nomChoixMenu'];?></h2></a>
 
     </div>
     <div >
@@ -16,7 +20,7 @@ ob_start();
                         <div class="col-sm-3 col-md-2 text-center" style="margin: 5px">
                             <img src="<?= $resultat ['photo'];?>" class="ImageRonde" height="250" width="250" alt="Avatar">
                         </div>
-                        <div class="col-sm-6 margin1Left50" style="align-self:  center; margin-top: 5px;">
+                        <div class="col-sm-5 margin1Left50" style="align-self:  center; margin-top: 5px;">
                             <div style="text-align: center"> <h5><?= $resultat ['name'];?></h5></div>
                             <div style="text-align: center"> <?= $resultat ['description'];?></div>
                        </div>

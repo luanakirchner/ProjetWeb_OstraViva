@@ -1,4 +1,8 @@
 <?php
+/*Luana Kirchner Bannwart
+ * 02/2020
+ * Version 1.0
+ */
 session_start();
 require 'controler/controler.php';
 if(isset($_GET['action'])){
@@ -31,6 +35,9 @@ if(isset($_GET['action'])){
             break;
         default:
             home();
+        case 'Reservations':
+            Reservations();
+            break;
     }
 }
 else{

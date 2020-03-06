@@ -59,3 +59,7 @@ function DisplayMenu($category){
     $_GET['nomChoixMenu'] = $category;
     require "View/Menu.php";
 }
+
+function Reservations(){
+    require 'View/Reservations.php';
+}

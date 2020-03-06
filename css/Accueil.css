@@ -42,31 +42,77 @@ p {font-size: 16px;}
     padding-top: 70px;
     padding-bottom: 20px;
 }
-
+/*-------------------------HOME-----------------------------*/
 .menuText{
     color: gray;
     margin-right: 40px;
     margin-left: 40px;
     //font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 20px;
+
     display: flex;
     justify-content: center;
     align-items: center;
     margin-top:30px ;
 
 }
+.ImagesDebout{
+    background-color:#D7D996;
+    width: 100%;
+    height: 400px;
+    margin-top: 15px;
+    margin-bottom: 10px;
+    color:white;
+    box-sizing: border-box;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
 
+.DivHome1{
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.DivHome2{
+    margin: auto;
+    position: absolute;
+    z-index: 2;
+    height: 25%;
+    width: 65%;
+    top:60%;
+    transition: .4s ease;
+    background-color: #F2EBDF;
+    border: #593C32 6px solid;
+}
+.DivHome2:hover{
+    top:50%;
+    transition: .5s ease;
+}
+.DivHome2Title{
+    margin: auto;
+    width: 90%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+.DivHome2Title h3{
+    border: #593C32;
+}
+/*---------------------------------Footer--------------------*/
 .NousTrouverFooter{
     background-color:#593C32;
     color:#F2EBDF;
 }
 
-.TitreH2Border{
-    margin: 25px;
-    margin-right: 50%;
-    margin-top: 50px;
-    border-bottom: black 1px solid;
-}
+/*-----------------------Qui sommes nous -------------------------*/
 .QuiNousSommes{
     min-height: 600px;
     margin: 25px;
@@ -77,7 +123,7 @@ p {font-size: 16px;}
     margin-right: 25px;
     color: black;
 }
-
+/*---------------------------Contact----------------------------------*/
 .NomRestaurantContact{
     margin: 25px;
     background-color: #F2EBDF;
@@ -93,6 +139,7 @@ p {font-size: 16px;}
     vertical-align: middle;
     display: table-cell;
 }
+/*--------------Logim Adm------------------------*/
 .LoginAdm{
     min-height: 300px;
     width: 80%;
@@ -109,43 +156,8 @@ p {font-size: 16px;}
     background-color: #593C32;
     color :#F2EBDF;
 }
-.TextAlignCenter{
-    text-align: center;
-}
-.overlay-image{
-    position: relative;
-}
-.overlay-image:hover{
-    opacity: 0.70;
-    transition: .3s ease;
-}
-.RowMenu{
-    margin: auto;
-    color: black;
+/*--------------Nous menu / Menu--------------------------------*/
 
-}
-.ImagesDebout{
-    background-color:#D7D996;
-    width: 100%;
-    height: 400px;
-    margin-top: 20px;
-    margin-bottom: 10px;
-    color:white;
-    box-sizing: border-box;
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
-}
-.margin30Top{
-    margin-top: 30px;
-}
-.margin1Left50{
-    margin-left: 70px;
-}
 .TextPrixAlign{
     align-self: center;
     text-align: right;
@@ -161,42 +173,38 @@ p {font-size: 16px;}
     border-top:#D7D996 4px solid
 }
 
-.DivHome1{
-    z-index: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 20px;
+/*--------------------Genéralles-------------------------------------*/
+.TextAlignCenter{
+    text-align: center;
+}
+.overlay-image{
+    position: relative;
+}
+.overlay-image:hover{
+    opacity: 0.70;
+    transition: .3s ease;
+}
+.RowMenu{
+    margin: auto;
+    color: black;
 
 }
-.DivHome2{
-    margin: auto;
-   position: absolute;
-    z-index: 2;
-    height: 25%;
-    width: 65%;
-    top:60%;
-    transition: .4s ease;
-    background-color: #F2EBDF;
-    border: #593C32 6px solid;
+.margin30Top{
+    margin-top: 30px;
 }
-.DivHome2:hover{
-    top:50%;
-    transition: .4s ease;
+.margin1Left50{
+    margin-left: 120px;
 }
-.DivHome2Title{
-    margin: auto;
-    width: 90%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+/*Titres des pages*/
+.TitreH2Border{
+    margin: 25px;
+    margin-right: 50%;
+    margin-top: 50px;
+    border-bottom: black 1px solid;
+}
 
-}
-.DivHome2Title h3{
-    border: #593C32;
-}
-@media screen and (max-width: 570px) {
+/*---------------Media screnn --------------------------------*/
+@media screen and (max-width: 575px) {
    .margin1Left50{
        margin-left: 0px;
    }
@@ -211,9 +219,7 @@ p {font-size: 16px;}
     .DivHome2Title h3{
         font-size: 20px;
     }
-    .DivHome1{
-        margin-bottom: 50px;
-    }
+
 }
 @media screen and (max-width: 990px) {
     .DivHome2{

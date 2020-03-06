@@ -1,3 +1,7 @@
+<?php/*Luana Kirchner Bannwart
+ * 02/2020
+ * Version 1.0
+ */ ?>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -45,7 +49,7 @@
                     <li><a href="index.php?action=homel">Accueil</a></li>
                     <li><a href="index.php?action=QuiSommesNous">Qui sommes nous</a></li>
                     <li><a href="index.php?action=NousMenus">Nous menus</a></li>
-                    <li><a href="portfolio.html">Réservations</a></li>
+                    <li><a href="index.php?action=Reservations">Réservations</a></li>
                     <li><a href="index.php?action=Contact">Contact</a></li>
                     <?php if (isset($_SESSION['username'])):?>
                         <li><a href="index.php?action=Logout">Logout</a></li>
@@ -88,7 +92,7 @@
                 <p style="line-height: 1.7rem"> Rue du Cabaraquara <br>
                     Guaratuba - PR <br>
                     Brésil <br>
-                    +55 41 999978-9766 <br>
+                    +55 41 83280-000 <br>
                     Ouver tous les weekends
                     </p>
             </div>
@@ -98,15 +102,11 @@
             <div class="col-md-12" style="text-align: center">
                     <!-- Facebook -->
                     <a  href="QuiSommesNous.php">
-                        <img src="Image/Facebook.png">
+                        <img src="Image/Facebook.png" height="20px" width="20px">
                     </a>
                     <!-- Facebook -->
                     <a  href="QuiSommesNous.php">
-                        <img src="Image/Facebook.png">
-                    </a>
-                    <!-- Facebook -->
-                    <a  href="QuiSommesNous.php">
-                        <img src="Image/Facebook.png">
+                        <img src="Image/Instagram.png"height="25px" width="25px">
                     </a>
             </div>
             <!-- Grid column -->

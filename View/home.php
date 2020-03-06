@@ -1,4 +1,8 @@
 <?php
+/*Luana Kirchner Bannwart
+ * 02/2020
+ * Version 1.0
+ */
 ob_start();
 
 ?>
@@ -37,20 +41,19 @@ ob_start();
     <h3 class="margin" style="margin-bottom: 20px"></h3><br>
     <div class="row">
         <div class="col-lg-4 DivHome1" >
-            <img src="Image/RagoutPoisson.jpg" class="img-responsive margin overlay-image" style="max-width: 80%; " alt="Image">
+            <img src="Image/RagoutPoisson.jpg" class="img-responsive margin" style="max-width: 80%; " alt="Image">
             <div class="DivHome2">
-                <div class="DivHome2Title"><h3>Venz voir nous menus</h3></div>
-
+                <a href="index.php?action=NousMenus"><div class="DivHome2Title"><h3>Venz voir nous menus</h3></div></a>
             </div>
         </div>
         <div class="col-lg-4 DivHome1">
-            <img src="Image/FruitDeMer.jpg" class="img-responsive margin overlay-image" style=" max-width: 80%;" alt="Image">
+            <img src="Image/FruitDeMer.jpg" class="img-responsive margin" style=" max-width: 80%;" alt="Image">
             <div class="DivHome2">
-                <div class="DivHome2Title"><h3>Le 3 meilleur restaurant d'huîtres au monde</h3></div>
-            </div>
+                <a href="index.php?action=QuiSommesNous"><div class="DivHome2Title"><h3>Le 3 meilleur restaurant d'huîtres au monde</h3></div></a>
+                </div>
         </div>
         <div class="col-lg-4 DivHome1">
-            <img src="Image/Moule.JPG" class="img-responsive margin overlay-image" style="max-width: 80%;" alt="Image">
+            <img src="Image/Moule.JPG" class="img-responsive margin" style="max-width: 80%;" alt="Image">
             <div class="DivHome2">
                 <div class="DivHome2Title"><h3>Réservation en Ligne</h3></div>
 
@@ -61,7 +64,7 @@ ob_start();
 </div>
 <div class=" menuText">
     <div style="text-align: justify">
-        <span><h3 style="background-color: white">nous visitéer</h3></span>
+        <span><h3 style="background-color: white">Nous visitéer</h3></span>
         egnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
         considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo
         tipografo prese una cassetta di caratteri e li assemblò per preparare un testo campione.
