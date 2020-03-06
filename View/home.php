@@ -2,7 +2,7 @@
 ob_start();
 
 ?>
-<div class="container-fluid text-center" style="padding-bottom: inherit">
+<div class="container-fluid text-center" style="padding-bottom: inherit;">
     <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -34,19 +34,30 @@ ob_start();
 </div>
 <!-- Third Container (Grid) -->
 <div class="container-fluid bg-3 text-center" style="padding-top: 30px">
-    <h3 class="margin" style="margin-bottom: 20px">Where To Find Me?</h3><br>
+    <h3 class="margin" style="margin-bottom: 20px"></h3><br>
     <div class="row">
-        <div class="col-lg-4" >
+        <div class="col-lg-4 DivHome1" >
             <img src="Image/RagoutPoisson.jpg" class="img-responsive margin overlay-image" style="max-width: 80%; " alt="Image">
+            <div class="DivHome2">
+                <div class="DivHome2Title"><h3>Venz voir nous menus</h3></div>
+
+            </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 DivHome1">
             <img src="Image/FruitDeMer.jpg" class="img-responsive margin overlay-image" style=" max-width: 80%;" alt="Image">
+            <div class="DivHome2">
+                <div class="DivHome2Title"><h3>Le 3 meilleur restaurant d'huîtres au monde</h3></div>
+            </div>
         </div>
-        <div class="col-lg-4">
+        <div class="col-lg-4 DivHome1">
             <img src="Image/Moule.JPG" class="img-responsive margin overlay-image" style="max-width: 80%;" alt="Image">
+            <div class="DivHome2">
+                <div class="DivHome2Title"><h3>Réservation en Ligne</h3></div>
+
+            </div>
         </div>
     </div>
-    </div>
+
 </div>
 <div class=" menuText">
     <div style="text-align: justify">

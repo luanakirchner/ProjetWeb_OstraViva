@@ -6,6 +6,8 @@ ob_start();
         <div class="TitreH2Border">
             <h2>Qui Sommes nous</h2>
         </div>
+</div>
+<div class="QuiNousSommes">
         <div class="TextQuiSommesNous">
             egnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
             considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo
@@ -43,8 +45,8 @@ ob_start();
             È sopravvissuto non solo a più di cinque secoli, ma anche al passaggio alla
             videoimpaginazione, pervenendoci sostanzialmente inalterato. Fu reso popolare, negli
         </div>
+    </div>
 </div>
-
 
 
 <?php
