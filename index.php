@@ -38,6 +38,8 @@ if(isset($_GET['action'])){
         case 'Reservations':
             Reservations();
             break;
+        case 'ReservationClient':
+            ReservationClient($_POST);
     }
 }
 else{

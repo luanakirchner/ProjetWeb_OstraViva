@@ -1,7 +1,3 @@
-<?php/*Luana Kirchner Bannwart
- * 02/2020
- * Version 1.0
- */ ?>
 <!DOCTYPE html>
 <html lang="zxx" class="no-js">
 <head>
@@ -46,7 +42,7 @@
             </div>
             <nav id="nav-menu-container">
                 <ul class="nav-menu">
-                    <li><a href="index.php?action=homel">Accueil</a></li>
+                    <li><a href="index.php?action=home">Accueil</a></li>
                     <li><a href="index.php?action=QuiSommesNous">Qui sommes nous</a></li>
                     <li><a href="index.php?action=NousMenus">Nous menus</a></li>
                     <li><a href="index.php?action=Reservations">Réservations</a></li>
@@ -136,6 +132,7 @@
 <script src="js/mail-script.js"></script>
 <script src="js/main.js"></script>
 
+
 <script>
     $(document).ready(function(){
         // Initialize Tooltip
@@ -164,6 +161,9 @@
                 });
             } // End if
         });
+        $( function() {
+            $( "#datepicker" ).datepicker();
+        } );
     })
 </script>
 </body>

@@ -43,7 +43,7 @@ ob_start();
         <div class="col-lg-4 DivHome1" >
             <img src="Image/RagoutPoisson.jpg" class="img-responsive margin" style="max-width: 80%; " alt="Image">
             <div class="DivHome2">
-                <a href="index.php?action=NousMenus"><div class="DivHome2Title"><h3>Venz voir nous menus</h3></div></a>
+                <a href="index.php?action=NousMenus"><div class="DivHome2Title"><h3>Venez voir nous menus</h3></div></a>
             </div>
         </div>
         <div class="col-lg-4 DivHome1">

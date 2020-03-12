@@ -199,8 +199,30 @@ p {font-size: 16px;}
 .TitreH2Border{
     margin: 25px;
     margin-right: 50%;
-    margin-top: 50px;
+    margin-top: 30px;
     border-bottom: black 1px solid;
+}
+
+/*------------------------Reservations------------------------------*/
+.FormReservation{
+    min-height: 300px;
+    width: 100%;
+   margin-top: 30px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+}
+.form-Horaire-Nbrpersonnes{
+    width: 70%;
+    height: 30px;
+    margin: auto;
+}
+.ErreurReservation{
+    margin-top: 25px;
+    margin-left: 25px;
+    color: red;
 }
 
 /*---------------Media screnn --------------------------------*/

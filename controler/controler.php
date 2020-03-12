@@ -63,3 +63,29 @@ function DisplayMenu($category){
 function Reservations(){
     require 'View/Reservations.php';
 }
+function ReservationClient($Reservation){
+
+   try {
+       if(@$Reservation["Date"] == ""){ throw  new  Exception ('Insérer une date');}
+       if(@$Reservation["Horaire"] == ""){ throw  new  Exception ('Choisir un horaire');}
+       if(@$Reservation["NbrPersonnes"] == ""){ throw  new  Exception ('Insérer le nombre des personnes');}
+       if(@$Reservation["Nom"] == ""){ throw  new  Exception ('Insérer un nom');}
+       if(@$Reservation["Prenom"] == ""){ throw  new  Exception ('Insérer un Prénom');}
+       if(@$Reservation["Email"] == ""){ throw  new  Exception ('Insérer un Email');}
+       if(@$Reservation["Telephone"] == ""){ throw  new  Exception ('Insérer un numéro de téléphone');}
+
+       $_GET['ErreurReservation'] = "OK";
+       require "View/Reservations.php";
+
+    }
+    catch (Exception $e){
+        $_GET["Nom"] = @$Reservation["Nom"];
+        $_GET["Prenom"] = @$Reservation["Prenom"];
+        $_GET["Email"] = @$Reservation["Email"];
+        $_GET["Telephone"] = @$Reservation["Telephone"];
+        $_GET["Date"] = @$Reservation["Date"];
+        $_GET["NbrPersonnes"] = @$Reservation["NbrPersonnes"];
+        $_GET['ErreurReservation'] = $e->getMessage();
+        require "View/Reservations.php";
+    }
+}
