@@ -74,8 +74,36 @@ function ReservationClient($Reservation){
        if(@$Reservation["Email"] == ""){ throw  new  Exception ('Insérer un Email');}
        if(@$Reservation["Telephone"] == ""){ throw  new  Exception ('Insérer un numéro de téléphone');}
 
-       $_GET['ErreurReservation'] = "OK";
-       require "View/Reservations.php";
+       //Recuperer le id de la season en cours et la quantite de personnes disponibles
+       $saison = SelectSeasons($Reservation["Date"]);
+
+       if(count($saison) == 1){
+           $id=  $saison[0]['id'];
+           $nbrPersonnesDispo = $saison[0]['nbrPeopleAvailableDay'];
+       }
+       else{
+           throw  new  Exception ('Insérer une autre date'.$Reservation["Date"].'');
+       }
+
+       if($nbrPersonnesDispo <= $Reservation["NbrPersonnes"]){
+           throw  new  Exception ('désolé, limite de capacité atteinte. Quantité disponible pour les réservations le jour choisi: '.$nbrPersonnesDispo.'');
+
+       }
+       else{
+           throw  new  Exception ('OK');
+       }
+
+       $ResultSelectClient = SelectCustomersWhereEmail($Reservation["Email"]);
+       $idClient=0;
+       //Voir si l'utilisateur existe déjà -> Recuperer son id
+       if(count($ResultSelectClient)==1){
+           $idClient = $ResultSelectClient[0]["id"];
+       }
+       //Créer l'utilisateur
+       else{
+           $idClient = InsertCustomers($Reservation);
+       }
+
 
     }
     catch (Exception $e){

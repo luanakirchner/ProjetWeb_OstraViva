@@ -40,3 +40,59 @@ function DisplayMenuWhereAutres(){
     $resultatsmenu = executeQuerySelect($menus);
     return $resultatsmenu;
 }
+
+function ReservationTables($reservation){
+
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+
+
+}
+function SelectCustomersWhereEmail($Email){
+
+    $strSeparator = '\'';
+    $Customer= 'SELECT * FROM customers WHERE email ='.$strSeparator.$Email.$strSeparator.';';
+
+    require_once  'model/dbconnection.php';
+
+    $queryResult = executeQuerySelect($Customer);
+
+    return $queryResult;
+
+}
+
+function InsertCustomers($Customers){
+
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $client = 'INSERT INTO `customers`(`firstname`, `lastname`, `email`, `telephone`) VALUES ('.$strSeparator.$Customers["Prenom"].$strSeparator.','.$strSeparator.$Customers["Nom"].$strSeparator.','.$strSeparator.$Customers["Email"].$strSeparator.','.$strSeparator.$Customers["Telephone"].$strSeparator.')';
+
+    require_once  'model/dbconnection.php';
+    $queryResult = executeQueryIDU($client);
+
+    if($queryResult){
+        $getlastid = MaxId();
+        $idClient = $getlastid[0]['id'];
+    }
+
+    return $idClient;
+}
+
+function MaxId(){
+
+    $req = 'SELECT MAX(id)as id FROM `customers`;';
+    $resultats = executeQuerySelect($req);
+    echo $req;
+    return $resultats;
+}
+
+function SelectSeasons($date){
+
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $seasons = 'SELECT * FROM `seasons` WHERE seasons.dateBegin <= '.$strSeparator.$date.$strSeparator.' AND seasons.dateEnd >= '.$strSeparator.$date.$strSeparator.'';
+    $resultats = executeQuerySelect($seasons);
+
+
+    return $resultats;
+}

@@ -6,7 +6,8 @@ ob_start();
         <h2>Réservations des tables</h2>
     </div>
     <div style="margin-left: 25px">Vous pouvez réserver une table en ligne chez nous</div>
-    <p class="ErreurReservation"><?=@$_GET['ErreurReservation']; ?></p>
+    <div class="alert alert-danger"><?=@$_GET['ErreurReservation']; ?></div>
+    <p class="ErreurReservation"></p>
 </div>
 
 <div class="FormReservation">
