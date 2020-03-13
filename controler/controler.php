@@ -11,29 +11,40 @@ function Contact(){
     require 'View/Contact.php';
 }
 function LoginAdmPrive($LoginRequest){
-    if(isset($LoginRequest["username"])&& isset($LoginRequest["password"])){
-        $username = $LoginRequest["username"];
-        $password = $LoginRequest["password"];
 
-        if (IsLoginCorrect($username,$password)){
+    if(isset($_SESSION['username'])){
+        $DatesReservations = SelectDateReservations();
+        $_GET['action'] = "PageADM";
+        require 'View/LoginAdm.php';
+    }
+    else {
 
-            createSession($username);
-            // Header("Location:Index.php?action=home");
-            $_GET['loginError'] = false;
-            $_GET['action'] = "home";
-            require 'View/home.php';
-        }
-        else{
-            $_GET['loginError'] = true;
+        if (isset($LoginRequest["username"]) && isset($LoginRequest["password"])) {
+            $username = $LoginRequest["username"];
+            $password = $LoginRequest["password"];
+
+            if (IsLoginCorrect($username, $password)) {
+
+                createSession($username);
+                $DatesReservations = SelectDateReservations();
+                // Header("Location:Index.php?action=home");
+                $_GET['loginError'] = false;
+                $_GET['action'] = "PageADM";
+                require 'View/LoginAdm.php';
+            } else {
+                $_GET['loginError'] = true;
+                $_GET['action'] = "LoginAdmPrive";
+                require 'View/LoginAdmPrive.php';
+            }
+        } else {
             $_GET['action'] = "LoginAdmPrive";
             require 'View/LoginAdmPrive.php';
         }
     }
-    else{
-        $_GET['action'] = "LoginAdmPrive";
-        require 'View/LoginAdmPrive.php';
-    }
 
+}
+function PageADM(){
+    require 'View/LoginAdm.php';
 }
 function NousMenus(){
     require 'View/NousMenus.php';
@@ -74,35 +85,19 @@ function ReservationClient($Reservation){
        if(@$Reservation["Email"] == ""){ throw  new  Exception ('Insérer un Email');}
        if(@$Reservation["Telephone"] == ""){ throw  new  Exception ('Insérer un numéro de téléphone');}
 
-       //Recuperer le id de la season en cours et la quantite de personnes disponibles
-       $saison = SelectSeasons($Reservation["Date"]);
 
-       if(count($saison) == 1){
-           $id=  $saison[0]['id'];
-           $nbrPersonnesDispo = $saison[0]['nbrPeopleAvailableDay'];
-       }
-       else{
-           throw  new  Exception ('Insérer une autre date'.$Reservation["Date"].'');
-       }
+        $idSaison =  ControlerSaison($Reservation);
+        $idCustomers =  ControlerCustomers($Reservation);
 
-       if($nbrPersonnesDispo <= $Reservation["NbrPersonnes"]){
-           throw  new  Exception ('désolé, limite de capacité atteinte. Quantité disponible pour les réservations le jour choisi: '.$nbrPersonnesDispo.'');
+        $Confirmation = CreateReservation($Reservation,$idCustomers,$idSaison);
 
-       }
-       else{
-           throw  new  Exception ('OK');
-       }
-
-       $ResultSelectClient = SelectCustomersWhereEmail($Reservation["Email"]);
-       $idClient=0;
-       //Voir si l'utilisateur existe déjà -> Recuperer son id
-       if(count($ResultSelectClient)==1){
-           $idClient = $ResultSelectClient[0]["id"];
-       }
-       //Créer l'utilisateur
-       else{
-           $idClient = InsertCustomers($Reservation);
-       }
+        if($Confirmation) {
+            $_GET['ReservationOK'] = "<div class='alert alert-success'>Merci pour votre réservation, vous allez recevoir un <strong>email de confirmation</strong>. Confirmer la réservation par email </div>";
+            require "View/Reservations.php";
+        }
+        else{
+            throw new Exception("Erreur se produit");
+        }
 
 
     }
@@ -113,7 +108,42 @@ function ReservationClient($Reservation){
         $_GET["Telephone"] = @$Reservation["Telephone"];
         $_GET["Date"] = @$Reservation["Date"];
         $_GET["NbrPersonnes"] = @$Reservation["NbrPersonnes"];
+        $_GET["Descpription"] = @$Reservation["Descpription"];
         $_GET['ErreurReservation'] = $e->getMessage();
         require "View/Reservations.php";
     }
+}
+function ControlerCustomers($customer){
+
+    $ResultSelectClient = SelectCustomersWhereEmail($customer["Email"]);
+    $idClient=0;
+    //Voir si l'utilisateur existe déjà -> Recuperer son id
+    if(count($ResultSelectClient)==1){
+        $idClient = $ResultSelectClient[0]["id"];
+    }
+    //Créer l'utilisateur
+    else{
+        $idClient = InsertCustomers($customer);
+    }
+    return $idClient;
+}
+function ControlerSaison($Date){
+
+    //Recuperer le id de la season en cours et la quantite de personnes disponibles
+    $saison = SelectSeasons($Date["Date"]);
+
+    if(count($saison) == 1){
+        $id=  $saison[0]['id'];
+        $nbrPersonnesDispo = $saison[0]['nbrPeopleAvailableDay'];
+    }
+    else{
+        throw  new  Exception ('Insérer une autre date'.$Date["Date"].'');
+    }
+
+    if($nbrPersonnesDispo <= $Date["NbrPersonnes"]){
+        throw  new  Exception ('désolé, limite de capacité atteinte. Quantité disponible pour les réservations le jour choisi: '.$nbrPersonnesDispo.'');
+
+    }
+    return $id;
+
 }

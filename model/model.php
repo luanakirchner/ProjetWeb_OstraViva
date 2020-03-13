@@ -92,7 +92,37 @@ function SelectSeasons($date){
     $strSeparator = '\'';
     $seasons = 'SELECT * FROM `seasons` WHERE seasons.dateBegin <= '.$strSeparator.$date.$strSeparator.' AND seasons.dateEnd >= '.$strSeparator.$date.$strSeparator.'';
     $resultats = executeQuerySelect($seasons);
-
-
     return $resultats;
+}
+
+function CreateReservation($Reservation,$idCustomer,$idSeason){
+
+    $confirmation = false;
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $resultReservation = 'INSERT INTO `reservations`(`date`, `time`, `nbrPeople`, `confirmation`, `description`, `Customers_id`, `Seasons_id`) VALUES ('.$strSeparator.$Reservation["Date"].$strSeparator.','.$strSeparator.$Reservation["Horaire"].$strSeparator.','.$strSeparator.$Reservation["NbrPersonnes"].$strSeparator.',0,'.$strSeparator.$Reservation["Descpription"].$strSeparator.','.$strSeparator.$idCustomer.$strSeparator.','.$strSeparator.$idSeason.$strSeparator.')';
+
+    require_once  'model/dbconnection.php';
+    $queryResult = executeQueryIDU($resultReservation);
+    if($queryResult){
+        $confirmation = true;
+    }
+    return $confirmation;
+}
+
+function SelectReservationAndCustomersWhereDate($date){
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $seasons = 'SELECT reservations.id, reservations.date, reservations.time,reservations.nbrPeople, reservations.description,customers.firstname, customers.lastname, customers.email,customers.telephone FROM reservations INNER JOIN customers on customers.id = reservations.Customers_id WHERE reservations.date ='.$strSeparator.$date.$strSeparator.' ORDER BY  reservations.time ';
+    $resultats = executeQuerySelect($seasons);
+    return $resultats;
+}
+
+function SelectDateReservations(){
+
+    require_once  'model/dbconnection.php';
+    $Dates = 'SELECT reservations.date FROM reservations GROUP BY reservations.date ORDER by reservations.date';
+    $resultats = executeQuerySelect($Dates);
+    return $resultats;
+
 }

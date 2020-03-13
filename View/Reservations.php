@@ -6,8 +6,7 @@ ob_start();
         <h2>Réservations des tables</h2>
     </div>
     <div style="margin-left: 25px">Vous pouvez réserver une table en ligne chez nous</div>
-    <div class="alert alert-danger"><?=@$_GET['ErreurReservation']; ?></div>
-    <p class="ErreurReservation"></p>
+    <p class="ErreurReservation"><?=@$_GET['ErreurReservation']; ?></p>
 </div>
 
 <div class="FormReservation">
@@ -51,7 +50,7 @@ ob_start();
             </div>
         </fieldset>
     </form>
-
+    <?=@ $_GET['ReservationOK'];?>;
 </div>
 
 
