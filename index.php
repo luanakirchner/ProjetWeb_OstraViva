@@ -43,6 +43,12 @@ if(isset($_GET['action'])){
         case 'PageADM':
               PageADM();
               break;
+        case 'DeletReservation':
+            DeletReservation($_GET['idReservation']);
+            break;
+        case 'EditPlat':
+            EditPlat($_GET['idPlat']);
+            break;
     }
 }
 else{

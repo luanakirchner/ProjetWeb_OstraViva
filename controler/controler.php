@@ -61,6 +61,8 @@ function Menu($choix){
 }
 
 function DisplayMenu($category){
+
+
     if($category =="Autres"){
         $resultMenus = DisplayMenuWhereAutres();
     }
@@ -68,7 +70,12 @@ function DisplayMenu($category){
         $resultMenus = DisplayMenuWhereCategory($category);
     }
     $_GET['nomChoixMenu'] = $category;
-    require "View/Menu.php";
+    if(isset($_SESSION['username'])) {
+        require  "View/MenuAdm.php";
+    }
+    else {
+        require "View/Menu.php";
+    }
 }
 
 function Reservations(){
@@ -145,5 +152,23 @@ function ControlerSaison($Date){
 
     }
     return $id;
+
+}
+
+function DeletReservation($id){
+    DeleteReservation($id);
+    $DatesReservations = SelectDateReservations();
+    $_GET['action'] = "PageADM";
+    require 'View/LoginAdm.php';
+}
+function EditPlat($id){
+    if(isset($id)){
+        $PlatEdit = SelectDishesWhereId($id);
+        $_GET['photo'] = $PlatEdit[0]['Photo'];
+        $_GET['title'] = $PlatEdit[0]['Name'];
+        $_GET['Description'] = $PlatEdit[0]['description'];
+        $_GET['Prix'] = $PlatEdit[0]['price'];
+    }
+    require 'View/EditPlat.php';
 
 }

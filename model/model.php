@@ -29,14 +29,14 @@ function createSession($username){
 function DisplayMenuWhereCategory($category){
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $menus = 'SELECT `name`,`description`,`price`,`photo` FROM `Dishes` WHERE `Categorys_id` = (SELECT id FROM Categorys WHERE Categorys.category= '.$strSeparator.$category.$strSeparator.');';
+    $menus = 'SELECT ` id`,`name`,`description`,`price`,`photo` FROM `Dishes` WHERE `Categorys_id` = (SELECT id FROM Categorys WHERE Categorys.category= '.$strSeparator.$category.$strSeparator.');';
     $resultatsmenu = executeQuerySelect($menus);
     return $resultatsmenu;
 }
 function DisplayMenuWhereAutres(){
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $menus = 'SELECT `name`,`description`,`price`,`photo` FROM `Dishes` WHERE Categorys_id != 2 AND Categorys_id != 7 AND Categorys_id != 3; ';
+    $menus = 'SELECT ` id`,`name`,`description`,`price`,`photo` FROM `Dishes` WHERE Categorys_id != 2 AND Categorys_id != 7 AND Categorys_id != 3; ';
     $resultatsmenu = executeQuerySelect($menus);
     return $resultatsmenu;
 }
@@ -125,4 +125,19 @@ function SelectDateReservations(){
     $resultats = executeQuerySelect($Dates);
     return $resultats;
 
+}
+
+function DeleteReservation($id){
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $resultReservation = 'DELETE FROM `reservations` WHERE ` id` ='.$strSeparator.$id.$strSeparator.';';
+    executeQueryIDU($resultReservation);
+}
+
+function SelectDishesWhereId($id){
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $Dates = 'SELECT * FROM dishes WHERE ` id`='.$strSeparator.$id.$strSeparator.';';
+    $resultats = executeQuerySelect($Dates);
+    return $resultats;
 }

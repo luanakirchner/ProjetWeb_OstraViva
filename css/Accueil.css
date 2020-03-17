@@ -156,12 +156,22 @@ p {font-size: 16px;}
     background-color: #593C32;
     color :#F2EBDF;
 }
+td{
+    color: #0b0b0b;
+}
 
 /*------------------------Page ADM -----------------------------*/
 .ContenuPage{
     min-height: 400px;
     margin: 25px;
 
+}
+.DateReservation{
+    margin-top: 50px;
+    color: black;
+    font-size: 25px;
+    margin-bottom: 10px;
+    margin-left: 20px;
 }
 /*--------------Nous menu / Menu--------------------------------*/
 
@@ -179,7 +189,20 @@ p {font-size: 16px;}
     border-bottom:#D7D996 4px solid;
     border-top:#D7D996 4px solid
 }
-
+.boutonMenu{
+    margin:auto;
+    background-color:#593C32 ;
+    height: 30px;
+    width: 50%;
+    margin-top: 20px;
+}
+.boutonTexte{
+    color: #F2EBDF;
+    text-align: center;
+}
+.boutonMenu:hover{
+    background-color:#785043 ;
+}
 /*--------------------Genéralles-------------------------------------*/
 .TextAlignCenter{
     text-align: center;
@@ -240,7 +263,59 @@ p {font-size: 16px;}
     .TextPrixAlign{
         text-align: center;
     }
+
 }
+@media screen and (max-width: 750px) {
+
+    table {
+        border: 0;
+    }
+
+    table caption {
+        font-size: 1.3em;
+    }
+
+    table thead {
+        border: none;
+        clip: rect(0 0 0 0);
+        height: 1px;
+        margin: -1px;
+        overflow: hidden;
+        padding: 0;
+        position: absolute;
+        width: 1px;
+        color: black;
+    }
+
+    table tr {
+        border-bottom: 3px solid #ddd;
+        display: block;
+        margin-bottom: .625em;
+    }
+
+    table td {
+        border-bottom: 1px solid #ddd;
+        display: block;
+        font-size: .8em;
+        text-align: right;
+    }
+
+    table td::before {
+        /*
+        * aria-label has no advantage, it won't be read inside a table
+        content: attr(aria-label);
+        */
+        content: attr(data-label);
+        float: left;
+        font-weight: bold;
+        text-transform: uppercase;
+    }
+
+    table td:last-child {
+        border-bottom: 0;
+    }
+}
+
 @media screen and (max-width: 1300px) {
     .DivHome2{
         height: 40%;
