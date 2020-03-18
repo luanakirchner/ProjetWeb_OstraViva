@@ -21,7 +21,7 @@ ob_start();
                             <img src="<?= $resultat ['photo'];?>" class="ImageRonde" height="250" width="250" alt="Avatar">
                         </div>
                         <div class="col-sm-5 margin1Left50" style="align-self:  center; margin-top: 5px;">
-                            <div style="text-align: center"> <h5><?= $resultat ['name'];?></h5></div>
+                            <div style="text-align: center"> <h5><?= $resultat ['Name'];?></h5></div>
                             <div style="text-align: center"> <?= $resultat ['description'];?></div>
                        </div>
                         <div class="col-sm-1 col-md-2 TextPrixAlign">

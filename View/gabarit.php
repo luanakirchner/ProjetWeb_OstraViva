@@ -49,6 +49,7 @@
                     <li><a href="index.php?action=Contact">Contact</a></li>
                     <?php if (isset($_SESSION['username'])):?>
                         <li><a href="index.php?action=Logout">Logout</a></li>
+                        <li><a href="index.php?action=PageADM">ADM</a></li>
                     <?php endif; ?>
                 </ul>
             </nav><!-- #nav-menu-container -->

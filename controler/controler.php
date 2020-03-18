@@ -44,6 +44,7 @@ function LoginAdmPrive($LoginRequest){
 
 }
 function PageADM(){
+    $DatesReservations = SelectDateReservations();
     require 'View/LoginAdm.php';
 }
 function NousMenus(){
@@ -164,11 +165,34 @@ function DeletReservation($id){
 function EditPlat($id){
     if(isset($id)){
         $PlatEdit = SelectDishesWhereId($id);
-        $_GET['photo'] = $PlatEdit[0]['Photo'];
+        $_GET['idPlat'] = $id;
+        $_GET['Photo'] = $PlatEdit[0]['photo'];
         $_GET['title'] = $PlatEdit[0]['Name'];
         $_GET['Description'] = $PlatEdit[0]['description'];
         $_GET['Prix'] = $PlatEdit[0]['price'];
     }
     require 'View/EditPlat.php';
 
+}
+function AddPlat($infos){
+
+    //Si un image a été selectionnée
+    if(is_uploaded_file($_FILES['addPhoto']['tmp_name'])) {
+        //Recuperer le nom de l'image
+        $nameImage = $_FILES['addPhoto']['name'];
+        //Transferer l'image dans le dossier image
+        if(move_uploaded_file($_FILES['addPhoto']['tmp_name'], "Image/$nameImage")){
+            echo "ok";
+        }
+        else{
+            echo "errer";
+        }
+    }
+    $PlatEdit = SelectDishesWhereId($infos['id']);
+    $_GET['idPlat'] = $infos['id'];
+    $_GET['Photo'] = $PlatEdit[0]['photo'];
+    $_GET['title'] = $PlatEdit[0]['Name'];
+    $_GET['Description'] = $PlatEdit[0]['description'];
+    $_GET['Prix'] = $PlatEdit[0]['price'];
+    require 'View/EditPlat.php';
 }

@@ -49,6 +49,9 @@ if(isset($_GET['action'])){
         case 'EditPlat':
             EditPlat($_GET['idPlat']);
             break;
+        case 'AddPlat':
+            AddPlat($_POST);
+            break;
     }
 }
 else{

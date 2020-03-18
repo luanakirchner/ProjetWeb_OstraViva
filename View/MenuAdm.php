@@ -22,8 +22,8 @@ ob_start();
                             <img src="<?= $resultat ['photo'];?>" class="ImageRonde" height="250" width="250" alt="Avatar">
                         </div>
                         <div class="col-sm-5 margin1Left50" style="align-self:  center; margin-top: 5px;">
-                         <a href="" style="color: #0b0b0b">
-                                <div style="text-align: center"> <h5><?= $resultat ['name'];?></h5></div>
+                         <a href="index.php?action=EditPlat&idPlat=<?=$resultat[' id']?>" style="color: #0b0b0b">
+                                <div style="text-align: center"> <h5><?= $resultat ['Name'];?></h5></div>
                                 <div style="text-align: center"> <p><?= $resultat ['description'];?></p></div>
                          </a>
                        </div>
