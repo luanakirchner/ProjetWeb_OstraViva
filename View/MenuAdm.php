@@ -23,20 +23,21 @@ ob_start();
                         </div>
                         <div class="col-sm-5 margin1Left50" style="align-self:  center; margin-top: 5px;">
                          <a href="index.php?action=EditPlat&idPlat=<?=$resultat[' id']?>" style="color: #0b0b0b">
-                                <div style="text-align: center"> <h5><?= $resultat ['Name'];?></h5></div>
+                                <div style="text-align: center"> <h5 class="TextHover"><?= $resultat ['Name'];?></h5></div>
                                 <div style="text-align: center"> <p><?= $resultat ['description'];?></p></div>
                          </a>
                        </div>
                         <div class="col-sm-1 col-md-2 TextPrixAlign">
                             <p><?=$resultat['price'];?> CHF</p>
+                            <a href="index.php?action=SuppPlat&idPlat=<?=$resultat[' id']?>&choix=<?=@$_GET['nomChoixMenu'];?>" onclick="return confirm('êtes vous sûrs de supprimmer cette élément ?')"><img  class="ImagaDeletHover" src="Image/Delet.png"></a>
                         </div>
                     </div>
                 </div>
                 <?php $modulo++;  endforeach; ?>
             </div>
-            <a class="boutonMenu"><h3 class="boutonTexte">ADD</h3></a>
+            <a class="boutonMenu" href="index.php?action=EditPlat"><h3 class="boutonTexte">ADD</h3></a>
         </div>
-    </div>
+</div>
 </div>
 
 

@@ -203,6 +203,17 @@ td{
 .boutonMenu:hover{
     background-color:#785043 ;
 }
+.ImagaDeletHover{
+    width: 35px;
+}
+.ImagaDeletHover:hover{
+    width: 40px;
+    transition: .3s ease;
+}
+.TextHover:hover{
+    font-size: 20px;
+    transition: .3s ease;
+}
 /*--------------------Genéralles-------------------------------------*/
 .TextAlignCenter{
     text-align: center;

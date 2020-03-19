@@ -50,7 +50,7 @@ ob_start();
             </div>
         </fieldset>
     </form>
-    <?=@ $_GET['ReservationOK'];?>;
+    <?=@ $_GET['ReservationOK'];?>
 </div>
 
 

@@ -85,6 +85,12 @@ function MaxId(){
     echo $req;
     return $resultats;
 }
+function MaxIdDishes(){
+    $req = 'SELECT MAX(` id`)as id FROM `dishes`;';
+    $resultats = executeQuerySelect($req);
+    echo $req;
+    return $resultats;
+}
 
 function SelectSeasons($date){
 
@@ -140,4 +146,38 @@ function SelectDishesWhereId($id){
     $Dates = 'SELECT * FROM dishes WHERE ` id`='.$strSeparator.$id.$strSeparator.';';
     $resultats = executeQuerySelect($Dates);
     return $resultats;
+}
+
+function InsertDishes($infos){
+
+    $confirmation = false;
+    $strSeparator = '\'';
+    $resultInsert = 'INSERT INTO `dishes`(`Name`, `price`, `description`, `photo`, `Categorys_id`) VALUES ('.$strSeparator.$infos['title'].$strSeparator.','.$infos['Prix'].','.$strSeparator.$infos['Description'].$strSeparator.','.$strSeparator.$infos['Photo'].$strSeparator.','.$strSeparator.$infos['Categories'].$strSeparator.');';
+    require_once  'model/dbconnection.php';
+    $queryResult = executeQueryIDU($resultInsert);
+    if($queryResult){
+        $confirmation = true;
+    }
+    return $confirmation;
+}
+function UpdateDishes($infos){
+
+    $confirmation = false;
+    $strSeparator = '\'';
+    $resultUpdate = 'UPDATE `dishes` SET `Name`='.$strSeparator.$infos['title'].$strSeparator.',`price`='.$strSeparator.$infos['Prix'].$strSeparator.',`description`='.$strSeparator.$infos['Description'].$strSeparator.',`photo`='.$strSeparator.$infos['Photo'].$strSeparator.',`Categorys_id`='.$strSeparator.$infos['Categories'].$strSeparator.'WHERE ` id`='.$strSeparator.$infos['idPlat'].$strSeparator.';';
+
+    require_once  'model/dbconnection.php';
+    $queryResult = executeQueryIDU($resultUpdate);
+    if($queryResult){
+        $confirmation = true;
+    }
+    return $confirmation;
+}
+
+function DeletDishes($id){
+    $confirmation = false;
+    $resultDelet = 'DELETE FROM `dishes` WHERE ` id` ='.$id.';';
+    require_once  'model/dbconnection.php';
+    executeQueryIDU($resultDelet);
+
 }

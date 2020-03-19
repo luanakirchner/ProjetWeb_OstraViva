@@ -162,6 +162,7 @@ function DeletReservation($id){
     $_GET['action'] = "PageADM";
     require 'View/LoginAdm.php';
 }
+//Recupeper le id du plat selectionner dans menu // Add un nouveau plat
 function EditPlat($id){
     if(isset($id)){
         $PlatEdit = SelectDishesWhereId($id);
@@ -170,29 +171,81 @@ function EditPlat($id){
         $_GET['title'] = $PlatEdit[0]['Name'];
         $_GET['Description'] = $PlatEdit[0]['description'];
         $_GET['Prix'] = $PlatEdit[0]['price'];
+        $_GET[$PlatEdit[0]['Categorys_id']] = "selected";
+        $_GET['PlatEdit'] = true;
     }
+    else{
+        $_GET['Photo'] = "Image/SansPhotoTransparance.png";
+    }
+
+    $_GET['PlatEdit'] = false;
     require 'View/EditPlat.php';
 
 }
-function AddPlat($infos){
 
-    //Si un image a été selectionnée
-    if(is_uploaded_file($_FILES['addPhoto']['tmp_name'])) {
-        //Recuperer le nom de l'image
-        $nameImage = $_FILES['addPhoto']['name'];
-        //Transferer l'image dans le dossier image
-        if(move_uploaded_file($_FILES['addPhoto']['tmp_name'], "Image/$nameImage")){
-            echo "ok";
+function PlatEdite($infos){
+
+    try {
+
+        //Si un image a été selectionnée
+        if(is_uploaded_file($_FILES['addPhoto']['tmp_name'])) {
+            //Recuperer le nom de l'image
+            $nameImage = $_FILES['addPhoto']['name'];
+            //Transferer l'image dans le dossier image
+            if(move_uploaded_file($_FILES['addPhoto']['tmp_name'], "Image/$nameImage")){
+                $infos['Photo'] = "Image/$nameImage";
+            }
+            else{
+                throw  new  Exception("Problème recontré avec la photo");
+            }
         }
+        if(@$infos['Categories'] ==""){throw  new  Exception("Insérer une categories");}
+        if(@$infos['title'] ==""){throw  new  Exception("Inéserer un title");}
+        if(@$infos['Prix'] ==""){$infos['Prix'] = 0;}
+
+        $idDishes = @$infos['idPlat'];
+
+        //------------Nouveau plat -----------------------
+        if(@$infos['idPlat']==""){
+            $confirm = InsertDishes($infos);
+            if($confirm){
+                $_GET['Reussi'] = "<div class='alert alert-success'>Vous données ont été sauvegarder</div>";
+                $id = MaxIdDishes();
+                $idDishes = $id[0]['id'];
+            }
+        }
+        //----------Modifier le plat-----------------------
         else{
-            echo "errer";
+            $confirm = UpdateDishes($infos);
+            if($confirm){
+                $_GET['Reussi'] = "<div class='alert alert-success'>Vous données ont été sauvegarder</div>";;
+            }
+            //----------Recuperer les infos du plat ------------
+
         }
+        $Plat = SelectDishesWhereId($idDishes);
+
+        $_GET['idPlat'] =  $Plat[0][' id'];
+        $_GET['Photo'] = $Plat[0]['photo'];
+        $_GET['title'] = $Plat[0]['Name'];
+        $_GET['Description'] = $Plat[0]['description'];
+        $_GET['Prix'] = $Plat[0]['price'];
+        $_GET[$Plat[0]['Categorys_id']] = "selected";
+        require 'View/EditPlat.php';
     }
-    $PlatEdit = SelectDishesWhereId($infos['id']);
-    $_GET['idPlat'] = $infos['id'];
-    $_GET['Photo'] = $PlatEdit[0]['photo'];
-    $_GET['title'] = $PlatEdit[0]['Name'];
-    $_GET['Description'] = $PlatEdit[0]['description'];
-    $_GET['Prix'] = $PlatEdit[0]['price'];
-    require 'View/EditPlat.php';
+    catch (Exception $e){
+        $_GET[@$infos['Categories']] = "selected";
+        $_GET['idPlat'] = @$infos['idPlat'];
+        $_GET['Photo'] = @$infos['Photo'];
+        $_GET['title'] =  @$infos['title'];
+        $_GET['Description'] = @$infos['Description'];
+        $_GET['Prix'] = @$infos['Prix'];
+        $_GET['Erreur'] = $e->getMessage();
+        require 'View/EditPlat.php';
+    }
+}
+
+function SuppPlat($idPlat, $category){
+        DeletDishes($idPlat);
+        DisplayMenu($category);
 }
