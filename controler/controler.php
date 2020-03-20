@@ -128,6 +128,8 @@ function ControlerCustomers($customer){
     //Voir si l'utilisateur existe déjà -> Recuperer son id
     if(count($ResultSelectClient)==1){
         $idClient = $ResultSelectClient[0]["id"];
+        //Changer les infos d'utilisateur
+        UpdateCustomer($customer,$idClient);
     }
     //Créer l'utilisateur
     else{
@@ -137,7 +139,11 @@ function ControlerCustomers($customer){
 }
 function ControlerSaison($Date){
 
-    //Recuperer le id de la season en cours et la quantite de personnes disponibles
+    // Si la date choisi est déjà passée
+    if($Date["Date"] <= date("Y-m-d") ){
+        throw  new  Exception ('Insérer une autre date');
+    }
+    //Récupérer le id de la season en cours et la quantite de personnes disponibles
     $saison = SelectSeasons($Date["Date"]);
 
     if(count($saison) == 1){
@@ -145,10 +151,17 @@ function ControlerSaison($Date){
         $nbrPersonnesDispo = $saison[0]['nbrPeopleAvailableDay'];
     }
     else{
-        throw  new  Exception ('Insérer une autre date'.$Date["Date"].'');
+        throw  new  Exception ('Insérer une autre date');
     }
 
-    if($nbrPersonnesDispo <= $Date["NbrPersonnes"]){
+    //Récupérer une reservation dans la date choisi
+    $resultReservationWhereData = SelectReservationWhereDate($Date["Date"]);
+    $nbrPeople = 0;
+    foreach ($resultReservationWhereData as $reservation){
+        $nbrPeople += $reservation["nbrPeople"];
+    }
+    $nbrPersonnesDispo = $nbrPersonnesDispo - $nbrPeople;
+    if($nbrPersonnesDispo < $Date["NbrPersonnes"]){
         throw  new  Exception ('désolé, limite de capacité atteinte. Quantité disponible pour les réservations le jour choisi: '.$nbrPersonnesDispo.'');
 
     }
@@ -162,6 +175,7 @@ function DeletReservation($id){
     $_GET['action'] = "PageADM";
     require 'View/LoginAdm.php';
 }
+
 //Recupeper le id du plat selectionner dans menu // Add un nouveau plat
 function EditPlat($id){
     if(isset($id)){

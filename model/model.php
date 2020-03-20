@@ -41,13 +41,6 @@ function DisplayMenuWhereAutres(){
     return $resultatsmenu;
 }
 
-function ReservationTables($reservation){
-
-    require_once  'model/dbconnection.php';
-    $strSeparator = '\'';
-
-
-}
 function SelectCustomersWhereEmail($Email){
 
     $strSeparator = '\'';
@@ -127,7 +120,8 @@ function SelectReservationAndCustomersWhereDate($date){
 function SelectDateReservations(){
 
     require_once  'model/dbconnection.php';
-    $Dates = 'SELECT reservations.date FROM reservations GROUP BY reservations.date ORDER by reservations.date';
+    $strSeparator = '\'';
+    $Dates = 'SELECT reservations.date FROM reservations Where reservations.date >= '.$strSeparator.date("Y-m-d").$strSeparator.' GROUP BY reservations.date ORDER by reservations.date';
     $resultats = executeQuerySelect($Dates);
     return $resultats;
 
@@ -136,7 +130,7 @@ function SelectDateReservations(){
 function DeleteReservation($id){
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $resultReservation = 'DELETE FROM `reservations` WHERE ` id` ='.$strSeparator.$id.$strSeparator.';';
+    $resultReservation = 'DELETE FROM `reservations` WHERE `id` ='.$strSeparator.$id.$strSeparator.';';
     executeQueryIDU($resultReservation);
 }
 
@@ -179,5 +173,23 @@ function DeletDishes($id){
     $resultDelet = 'DELETE FROM `dishes` WHERE ` id` ='.$id.';';
     require_once  'model/dbconnection.php';
     executeQueryIDU($resultDelet);
+
+}
+
+function SelectReservationWhereDate($date){
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $resultReservation = 'SELECT * FROM `reservations` WHERE reservations.date ='.$strSeparator.$date.$strSeparator.';';
+    $resultats = executeQuerySelect($resultReservation);
+    return $resultats;
+}
+
+function UpdateCustomer($Customer,$id){
+
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $resultUpdate = 'UPDATE `customers` SET `firstname`='.$strSeparator.$Customer["Prenom"].$strSeparator.', `lastname`='.$strSeparator.$Customer["Nom"].$strSeparator.',`telephone`='.$strSeparator.$Customer["Telephone"].$strSeparator.' WHERE id='.$id.';';
+    require_once  'model/dbconnection.php';
+    $queryResult = executeQueryIDU($resultUpdate);
 
 }

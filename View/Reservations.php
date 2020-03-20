@@ -32,8 +32,8 @@ ob_start();
                 <input type="number" name="NbrPersonnes" min="1" max="30" id="NbrPersonnes" value="<?=@$_GET['NbrPersonnes'];?>" class="form-Horaire-Nbrpersonnes">
             </div>
             <div class="form-group" style="margin-top: 40px">
-                <input type="text" id="Nom" name="Nom" placeholder="Nom *" value="<?=@$_GET['Nom'];?>" style="width: 55%" >
                 <input type="text"  id="Prenom" name="Prenom"  placeholder="Prénom *" value="<?=@$_GET['Prenom'];?>" style="width: 44%">
+                <input type="text" id="Nom" name="Nom" placeholder="Nom *" value="<?=@$_GET['Nom'];?>" style="width: 55%" >
             </div>
             <div class="form-group">
                 <input type="Email" id="Email" name="Email" placeholder="Email *" value="<?=@$_GET['Email'];?>" style="width: 100%">

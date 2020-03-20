@@ -18,7 +18,7 @@ ob_start();
 
             <div class="DateReservation"> <?= $resultat["date"] ?></div>
 
-                <div class="col-sm-12" >
+                <div class="col-sm-12"  >
                  <table class="table" style="text-align: center">
                      <thead>
                          <tr>
@@ -33,7 +33,7 @@ ob_start();
                      </thead>
                     <?php $count = 0; foreach ($resultarsReservations as $reservation) :   ?>
                      <tbody>
-                        <tr <?php if ($count%2 == 0):?>style="background-color:lightgrey;"<?php endif; ?> style="background-color: white";>
+                        <tr <?php if ($count%2 == 0):?>style="background-color:#D9D5D4;"<?php endif; ?> style="background-color: white;";>
                             <td data-label="Nom"><?=$reservation["firstname"] ?> <?=$reservation["lastname"] ?></td>
                             <td data-label="Nbr personnes"><?=$reservation["nbrPeople"] ?></td>
                             <td data-label="Horaire"><?=$reservation["time"] ?></td>

@@ -55,7 +55,7 @@ ob_start();
         <div class="col-lg-4 DivHome1">
             <img src="Image/Moule.JPG" class="img-responsive margin" style="max-width: 80%;" alt="Image">
             <div class="DivHome2">
-                <div class="DivHome2Title"><h3>Réservation en Ligne</h3></div>
+                <a href="index.php?action=Reservations"><div class="DivHome2Title"><h3>Réservation en Ligne</h3></div></a>
 
             </div>
         </div>
