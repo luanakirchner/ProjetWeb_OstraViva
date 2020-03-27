@@ -100,7 +100,8 @@ function ReservationClient($Reservation){
         $Confirmation = CreateReservation($Reservation,$idCustomers,$idSaison);
 
         if($Confirmation) {
-            $_GET['ReservationOK'] = "<div class='alert alert-success'>Merci pour votre réservation, vous allez recevoir un <strong>email de confirmation</strong>. Confirmer la réservation par email </div>";
+            EnvoyerEmail($Reservation);
+            $_GET['ReservationOK'] = "<div class='alert alert-success'>Merci pour votre réservation, vous allez recevoir une <strong>email de confirmation</strong>. Confirmer la réservation par email </div>";
             require "View/Reservations.php";
         }
         else{
@@ -143,17 +144,23 @@ function ControlerSaison($Date){
     if($Date["Date"] <= date("Y-m-d") ){
         throw  new  Exception ('Insérer une autre date');
     }
-    //Récupérer le id de la season en cours et la quantite de personnes disponibles
+    //Récupérer le id de la season en cours et la quantite des personnes disponibles
     $saison = SelectSeasons($Date["Date"]);
 
     if(count($saison) == 1){
         $id=  $saison[0]['id'];
+        $OpenWeek = $saison[0]['openWeek'];
         $nbrPersonnesDispo = $saison[0]['nbrPeopleAvailableDay'];
     }
     else{
         throw  new  Exception ('Insérer une autre date');
     }
-
+    if($OpenWeek == 0){
+        $day = date('w', strtotime($Date["Date"]));
+        if($day != 0 && $day != 6){
+            throw  new  Exception ('Desolé, nous sommes ouverts seulement les weekends');
+        }
+    }
     //Récupérer une reservation dans la date choisi
     $resultReservationWhereData = SelectReservationWhereDate($Date["Date"]);
     $nbrPeople = 0;
@@ -178,7 +185,7 @@ function DeletReservation($id){
 
 //Recupeper le id du plat selectionner dans menu // Add un nouveau plat
 function EditPlat($id){
-    if(isset($id)){
+    if($id != 0){
         $PlatEdit = SelectDishesWhereId($id);
         $_GET['idPlat'] = $id;
         $_GET['Photo'] = $PlatEdit[0]['photo'];
@@ -220,10 +227,10 @@ function PlatEdite($infos){
         $idDishes = @$infos['idPlat'];
 
         //------------Nouveau plat -----------------------
-        if(@$infos['idPlat']==""){
+        if(@$infos['idPlat']==0){
             $confirm = InsertDishes($infos);
             if($confirm){
-                $_GET['Reussi'] = "<div class='alert alert-success'>Vous données ont été sauvegarder</div>";
+                $_GET['Reussi'] = "<div class='alert alert-success'>Vous donnez ont été sauvegarder</div>";
                 $id = MaxIdDishes();
                 $idDishes = $id[0]['id'];
             }
@@ -232,7 +239,7 @@ function PlatEdite($infos){
         else{
             $confirm = UpdateDishes($infos);
             if($confirm){
-                $_GET['Reussi'] = "<div class='alert alert-success'>Vous données ont été sauvegarder</div>";;
+                $_GET['Reussi'] = "<div class='alert alert-success'>Vous donnez ont été sauvegarder</div>";;
             }
             //----------Recuperer les infos du plat ------------
 
@@ -262,4 +269,29 @@ function PlatEdite($infos){
 function SuppPlat($idPlat, $category){
         DeletDishes($idPlat);
         DisplayMenu($category);
+}
+function EnvoyerEmail($Client){
+
+    $Nom = $Client["Nom"];
+
+    ini_set( 'display_errors', 1 );
+    error_reporting( E_ALL );
+
+    $to = $Client["Email"];
+
+    $subject = "Confirmer votre réservation";
+    $message ="<HTML><BODY>";
+    $message .= "Bonjour Mr(Mme) $Nom <br/>";
+    $message .= "Veuillez cliquez sur le lien ci-dessous pour confirmer votre réservation dans notre restaurant Ostra Viva <br/>";
+    $message .= "<a href = 'http://resto.mycpnv.ch' >Je confirme ma réservation</a><br/>";
+    $message .= "Merci pour votre confiance<br/>";
+    $message .= "Ostra Viva";
+    $message .="</BODY></HTML>";
+
+    $headers = "From: \"expediteur moi\"<luana.kirchner-bannwart@resto.mycpnv.ch>\n";
+    $headers .= "Reply-To: luana.kirchner-bannwart@resto.mycpnv.ch\n";
+    $headers .= "Content-Type: text/html; charset=\"iso-8859-1\"";
+
+    mail($to,$subject,$message, $headers);
+
 }

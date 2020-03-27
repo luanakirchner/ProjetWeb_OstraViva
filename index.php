@@ -40,6 +40,7 @@ if(isset($_GET['action'])){
             break;
         case 'ReservationClient':
             ReservationClient($_POST);
+            break;
         case 'PageADM':
               PageADM();
               break;

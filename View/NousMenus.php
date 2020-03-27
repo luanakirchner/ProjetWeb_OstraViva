@@ -27,6 +27,9 @@ ob_start();
         </div>
     </div>
 </div>
+<?php if (isset($_SESSION['username'])):?>
+    <a href="index.php?action=EditPlat&idPlat=0"><h3 class="boutonTexte boutonMenu">ADD</h3></a>
+<?php endif; ?>
 
 
 

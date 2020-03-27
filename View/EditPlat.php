@@ -10,10 +10,10 @@ ob_start();
     <div class="TitreH2Border">
         <h2>Edite le plat</h2>
     </div>
-    <p><?=@$_GET['Erreur']; ?></p>
+    <p style="margin-left: 15px;color: red"><?=@$_GET['Erreur']; ?></p>
         <?=@ $_GET['Reussi'];?>
 </div>
-<div class="ContenuPage FormReservation " >
+<div class="FormReservation " >
     <form  method='POST' enctype="multipart/form-data" action='index.php?action=PlatEdite' style="width: 80%; max-width: 500px;">
         <fieldset>
             <div class="form-group">
@@ -48,10 +48,11 @@ ob_start();
                 <input type="text" name="Prix"  id="Prix" value="<?=@$_GET['Prix'];?>" style="width: 100%">
             </div>
             <div class="form-group" >
-                Choisir une nouvelle photo: <input type="file" name="addPhoto">
+                Choisir une nouvelle photo: <input class="btn fontsize" type="file" name="addPhoto">
             </div>
             <div class="form-group">
-                <input type="submit" style="width: 100%">
+                <a href="index.php?action=EditPlat&idPlat=0""><button type="button" class="btn" style="margin-bottom:  20px">Vider les champs</button></a>
+                <input type="submit" class="btn" style="width: 100%; background-color: #b1dfbb">
             </div>
         </fieldset>
     </form>

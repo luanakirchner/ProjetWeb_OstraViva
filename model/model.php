@@ -58,7 +58,7 @@ function InsertCustomers($Customers){
 
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $client = 'INSERT INTO `customers`(`firstname`, `lastname`, `email`, `telephone`) VALUES ('.$strSeparator.$Customers["Prenom"].$strSeparator.','.$strSeparator.$Customers["Nom"].$strSeparator.','.$strSeparator.$Customers["Email"].$strSeparator.','.$strSeparator.$Customers["Telephone"].$strSeparator.')';
+    $client = 'INSERT INTO `customers`(`firstname`, `lastname`, `email`, `telephone`) VALUES ('.$strSeparator.addslashes($Customers["Prenom"]).$strSeparator.','.$strSeparator.addslashes($Customers["Nom"]).$strSeparator.','.$strSeparator.$Customers["Email"].$strSeparator.','.$strSeparator.$Customers["Telephone"].$strSeparator.')';
 
     require_once  'model/dbconnection.php';
     $queryResult = executeQueryIDU($client);
@@ -99,7 +99,7 @@ function CreateReservation($Reservation,$idCustomer,$idSeason){
     $confirmation = false;
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $resultReservation = 'INSERT INTO `reservations`(`date`, `time`, `nbrPeople`, `confirmation`, `description`, `Customers_id`, `Seasons_id`) VALUES ('.$strSeparator.$Reservation["Date"].$strSeparator.','.$strSeparator.$Reservation["Horaire"].$strSeparator.','.$strSeparator.$Reservation["NbrPersonnes"].$strSeparator.',0,'.$strSeparator.$Reservation["Descpription"].$strSeparator.','.$strSeparator.$idCustomer.$strSeparator.','.$strSeparator.$idSeason.$strSeparator.')';
+    $resultReservation = 'INSERT INTO `reservations`(`date`, `time`, `nbrPeople`, `confirmation`, `description`, `Customers_id`, `Seasons_id`) VALUES ('.$strSeparator.$Reservation["Date"].$strSeparator.','.$strSeparator.$Reservation["Horaire"].$strSeparator.','.$strSeparator.$Reservation["NbrPersonnes"].$strSeparator.',0,'.$strSeparator.addslashes($Reservation["Descpription"]).$strSeparator.','.$strSeparator.$idCustomer.$strSeparator.','.$strSeparator.$idSeason.$strSeparator.')';
 
     require_once  'model/dbconnection.php';
     $queryResult = executeQueryIDU($resultReservation);
@@ -146,7 +146,7 @@ function InsertDishes($infos){
 
     $confirmation = false;
     $strSeparator = '\'';
-    $resultInsert = 'INSERT INTO `dishes`(`Name`, `price`, `description`, `photo`, `Categorys_id`) VALUES ('.$strSeparator.$infos['title'].$strSeparator.','.$infos['Prix'].','.$strSeparator.$infos['Description'].$strSeparator.','.$strSeparator.$infos['Photo'].$strSeparator.','.$strSeparator.$infos['Categories'].$strSeparator.');';
+    $resultInsert = 'INSERT INTO `dishes`(`Name`, `price`, `description`, `photo`, `Categorys_id`) VALUES ('.$strSeparator.addslashes($infos['title']).$strSeparator.','.$infos['Prix'].','.$strSeparator.addslashes($infos['Description']).$strSeparator.','.$strSeparator.$infos['Photo'].$strSeparator.','.$strSeparator.$infos['Categories'].$strSeparator.');';
     require_once  'model/dbconnection.php';
     $queryResult = executeQueryIDU($resultInsert);
     if($queryResult){
@@ -158,7 +158,7 @@ function UpdateDishes($infos){
 
     $confirmation = false;
     $strSeparator = '\'';
-    $resultUpdate = 'UPDATE `dishes` SET `Name`='.$strSeparator.$infos['title'].$strSeparator.',`price`='.$strSeparator.$infos['Prix'].$strSeparator.',`description`='.$strSeparator.$infos['Description'].$strSeparator.',`photo`='.$strSeparator.$infos['Photo'].$strSeparator.',`Categorys_id`='.$strSeparator.$infos['Categories'].$strSeparator.'WHERE ` id`='.$strSeparator.$infos['idPlat'].$strSeparator.';';
+    $resultUpdate = 'UPDATE `dishes` SET `Name`='.$strSeparator.addslashes($infos['title']).$strSeparator.',`price`='.$strSeparator.$infos['Prix'].$strSeparator.',`description`='.$strSeparator.addslashes($infos['Description']).$strSeparator.',`photo`='.$strSeparator.$infos['Photo'].$strSeparator.',`Categorys_id`='.$strSeparator.$infos['Categories'].$strSeparator.'WHERE ` id`='.$strSeparator.$infos['idPlat'].$strSeparator.';';
 
     require_once  'model/dbconnection.php';
     $queryResult = executeQueryIDU($resultUpdate);

@@ -29,15 +29,12 @@ ob_start();
                        </div>
                         <div class="col-sm-1 col-md-2 TextPrixAlign">
                             <p><?=$resultat['price'];?> CHF</p>
-                            <a href="index.php?action=SuppPlat&idPlat=<?=$resultat[' id']?>&choix=<?=@$_GET['nomChoixMenu'];?>" onclick="return confirm('êtes vous sûrs de supprimmer cette élément ?')"><img  class="ImagaDeletHover" src="Image/Delet.png"></a>
+                            <a href="index.php?action=SuppPlat&idPlat=<?=$resultat[' id']?>&choix=<?=@$_GET['nomChoixMenu'];?>" onclick="return confirm('êtes vous sûrs de vouloir supprimer cette élément ?')"><img  class="ImagaDeletHover" src="Image/Delet.png"></a>
                         </div>
                     </div>
                 </div>
                 <?php $modulo++;  endforeach; ?>
-            </div>
-            <a class="boutonMenu" href="index.php?action=EditPlat"><h3 class="boutonTexte">ADD</h3></a>
-        </div>
-</div>
+    </div>
 </div>
 
 
