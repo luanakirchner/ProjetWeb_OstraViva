@@ -56,6 +56,10 @@ if(isset($_GET['action'])){
         case 'PlatEdite':
             PlatEdite($_POST);
             break;
+        case 'ConfirmReservation':
+            ConfirmReservation($_GET['Hash']);
+            break;
+
     }
 }
 else{

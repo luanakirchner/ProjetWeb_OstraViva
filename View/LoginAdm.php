@@ -40,7 +40,7 @@ ob_start();
                             <td data-label="Email"><?=$reservation["email"] ?></td>
                             <td data-label="Téléphone"><?=$reservation["telephone"] ?></td>
                             <td data-label="Description" style="min-height:  40px"><?=$reservation["description"] ?></td>
-                            <td data-label="Annulation" style="min-height:  40px"><a href="index.php?action=DeletReservation&idReservation=<?=$reservation["id"]?>"><img src="Image/Delet.png" width="20px"></a></td>
+                            <td data-label="Annulation" style="min-height:  40px"><a href="index.php?action=DeletReservation&idReservation=<?=$reservation["id"]?>" onclick="return confirm('êtes vous sûrs de vouloir supprimer cette élément ?')" ><img src="Image/Delet.png" width="20px"></a></td>
 
                         </tr>
                      </tbody>

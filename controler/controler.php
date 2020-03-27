@@ -95,12 +95,15 @@ function ReservationClient($Reservation){
 
 
         $idSaison =  ControlerSaison($Reservation);
-        $idCustomers =  ControlerCustomers($Reservation);
+
+       //Email Hash
+        $userHashEmail= md5($Reservation["Email"]);
+        $idCustomers =  ControlerCustomers($Reservation,$userHashEmail);
 
         $Confirmation = CreateReservation($Reservation,$idCustomers,$idSaison);
 
         if($Confirmation) {
-            EnvoyerEmail($Reservation);
+            EnvoyerEmail($Reservation,$userHashEmail);
             $_GET['ReservationOK'] = "<div class='alert alert-success'>Merci pour votre réservation, vous allez recevoir une <strong>email de confirmation</strong>. Confirmer la réservation par email </div>";
             require "View/Reservations.php";
         }
@@ -122,7 +125,7 @@ function ReservationClient($Reservation){
         require "View/Reservations.php";
     }
 }
-function ControlerCustomers($customer){
+function ControlerCustomers($customer,$userHashEmail){
 
     $ResultSelectClient = SelectCustomersWhereEmail($customer["Email"]);
     $idClient=0;
@@ -134,7 +137,7 @@ function ControlerCustomers($customer){
     }
     //Créer l'utilisateur
     else{
-        $idClient = InsertCustomers($customer);
+        $idClient = InsertCustomers($customer,$userHashEmail);
     }
     return $idClient;
 }
@@ -270,7 +273,7 @@ function SuppPlat($idPlat, $category){
         DeletDishes($idPlat);
         DisplayMenu($category);
 }
-function EnvoyerEmail($Client){
+function EnvoyerEmail($Client,$userHashEmail){
 
     $Nom = $Client["Nom"];
 
@@ -283,15 +286,40 @@ function EnvoyerEmail($Client){
     $message ="<HTML><BODY>";
     $message .= "Bonjour Mr(Mme) $Nom <br/>";
     $message .= "Veuillez cliquez sur le lien ci-dessous pour confirmer votre réservation dans notre restaurant Ostra Viva <br/>";
-    $message .= "<a href = 'http://resto.mycpnv.ch' >Je confirme ma réservation</a><br/>";
+    $message .= "<a href = 'http://resto.mycpnv.ch/index.php?action=ConfirmReservation&Hash=$userHashEmail' >Je confirme ma réservation</a><br/>";
     $message .= "Merci pour votre confiance<br/>";
     $message .= "Ostra Viva";
     $message .="</BODY></HTML>";
 
-    $headers = "From: \"expediteur moi\"<luana.kirchner-bannwart@resto.mycpnv.ch>\n";
+    $headers = "From: \"Ostra Viva\"<luana.kirchner-bannwart@resto.mycpnv.ch>\n";
     $headers .= "Reply-To: luana.kirchner-bannwart@resto.mycpnv.ch\n";
     $headers .= "Content-Type: text/html; charset=\"iso-8859-1\"";
 
     mail($to,$subject,$message, $headers);
 
+}
+
+function ConfirmReservation($email){
+
+    //Seelctioner le client avec l'email hash
+    $Customer = ControlerEmail($email);
+
+    if(Count($Customer) == 1){
+        //Recuperer son id
+        $id = $Customer[0]["id"];
+
+        //Modifier la BD
+        $confirmOK= ConfirmedReservation($id);
+
+        if($confirmOK){
+            $_GET["ConfirmeOk"] = "Votre réservation a été confirmée <br> Merci pour votre confiance";
+        }
+        else{
+            $_GET["ConfirmeOk"] = "Un erreur se produit, essayer une deuxième fois <br> Si l'erreur persiste appelez-nous";
+        }
+        require "View/ConfirmedReservation.php";
+    }
+    else{
+        require "index.php";
+    }
 }

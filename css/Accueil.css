@@ -45,6 +45,12 @@ p {font-size: 16px;}
 .fontsize{
     font-size: 13px;
 }
+.aligCenter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
 /*-------------------------HOME-----------------------------*/
 .menuText{
     color: gray;

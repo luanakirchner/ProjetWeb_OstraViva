@@ -15,6 +15,7 @@ function IsLoginCorrect($username,$password){
         $userHashPsw = $queryResult[0]['password'];
         $hashpasswordDebug = password_hash($password, PASSWORD_DEFAULT);
         $result = password_verify($password, $userHashPsw);
+
         return $result;
     }
     else{
@@ -29,14 +30,14 @@ function createSession($username){
 function DisplayMenuWhereCategory($category){
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $menus = 'SELECT  ` id`, `Name`, `price`, `description`, `photo`, `Categorys_id` FROM `Dishes` WHERE `Categorys_id` = (SELECT id FROM Categorys WHERE Categorys.category= '.$strSeparator.$category.$strSeparator.');';
+    $menus = 'SELECT ` id`, `Name`, `price`, `description`, `photo`, `categorys_id` FROM `dishes` WHERE categorys_id = (SELECT id FROM categorys WHERE categorys.category= '.$strSeparator.$category.$strSeparator.');';
     $resultatsmenu = executeQuerySelect($menus);
     return $resultatsmenu;
 }
 function DisplayMenuWhereAutres(){
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $menus = 'SELECT  ` id`, `Name`, `price`, `description`, `photo`, `Categorys_id` FROM `Dishes` WHERE Categorys_id != 2 AND Categorys_id != 7 AND Categorys_id != 3; ';
+    $menus = 'SELECT  ` id`, `Name`, `price`, `description`, `photo`, `Categorys_id` FROM `dishes` WHERE Categorys_id != 2 AND Categorys_id != 7 AND Categorys_id != 3; ';
     $resultatsmenu = executeQuerySelect($menus);
     return $resultatsmenu;
 }
@@ -54,11 +55,11 @@ function SelectCustomersWhereEmail($Email){
 
 }
 
-function InsertCustomers($Customers){
+function InsertCustomers($Customers,$userHashEmail){
 
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $client = 'INSERT INTO `customers`(`firstname`, `lastname`, `email`, `telephone`) VALUES ('.$strSeparator.addslashes($Customers["Prenom"]).$strSeparator.','.$strSeparator.addslashes($Customers["Nom"]).$strSeparator.','.$strSeparator.$Customers["Email"].$strSeparator.','.$strSeparator.$Customers["Telephone"].$strSeparator.')';
+    $client = 'INSERT INTO `customers`(`firstname`, `lastname`, `email`, `telephone`, `emailHash`) VALUES ('.$strSeparator.addslashes($Customers["Prenom"]).$strSeparator.','.$strSeparator.addslashes($Customers["Nom"]).$strSeparator.','.$strSeparator.$Customers["Email"].$strSeparator.','.$strSeparator.$Customers["Telephone"].$strSeparator.','.$strSeparator.$userHashEmail.$strSeparator.')';
 
     require_once  'model/dbconnection.php';
     $queryResult = executeQueryIDU($client);
@@ -112,7 +113,7 @@ function CreateReservation($Reservation,$idCustomer,$idSeason){
 function SelectReservationAndCustomersWhereDate($date){
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $seasons = 'SELECT reservations.id, reservations.date, reservations.time,reservations.nbrPeople, reservations.description,customers.firstname, customers.lastname, customers.email,customers.telephone FROM reservations INNER JOIN customers on customers.id = reservations.Customers_id WHERE reservations.date ='.$strSeparator.$date.$strSeparator.' ORDER BY  reservations.time ';
+    $seasons = 'SELECT reservations.id, reservations.date, reservations.time,reservations.nbrPeople, reservations.description,customers.firstname, customers.lastname, customers.email,customers.telephone FROM reservations INNER JOIN customers on customers.id = reservations.Customers_id WHERE reservations.date ='.$strSeparator.$date.$strSeparator.' AND `confirmation` = 1 ORDER BY  reservations.time ';
     $resultats = executeQuerySelect($seasons);
     return $resultats;
 }
@@ -121,7 +122,7 @@ function SelectDateReservations(){
 
     require_once  'model/dbconnection.php';
     $strSeparator = '\'';
-    $Dates = 'SELECT reservations.date FROM reservations Where reservations.date >= '.$strSeparator.date("Y-m-d").$strSeparator.' GROUP BY reservations.date ORDER by reservations.date';
+    $Dates = 'SELECT reservations.date FROM reservations Where reservations.date >= '.$strSeparator.date("Y-m-d").$strSeparator.' AND `confirmation` = 1 GROUP BY reservations.date ORDER by reservations.date';
     $resultats = executeQuerySelect($Dates);
     return $resultats;
 
@@ -191,5 +192,23 @@ function UpdateCustomer($Customer,$id){
     $resultUpdate = 'UPDATE `customers` SET `firstname`='.$strSeparator.$Customer["Prenom"].$strSeparator.', `lastname`='.$strSeparator.$Customer["Nom"].$strSeparator.',`telephone`='.$strSeparator.$Customer["Telephone"].$strSeparator.' WHERE id='.$id.';';
     require_once  'model/dbconnection.php';
     $queryResult = executeQueryIDU($resultUpdate);
+
+}
+
+function ControlerEmail($email){
+
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $resultReservation = 'SELECT * FROM `customers` WHERE emailHash ='.$strSeparator.$email.$strSeparator.';';
+    $resultats = executeQuerySelect($resultReservation);
+    return $resultats;
+}
+function ConfirmedReservation($idClient){
+    require_once  'model/dbconnection.php';
+    $strSeparator = '\'';
+    $resultConfirm = 'UPDATE `reservations` SET `confirmation`= 1 WHERE `Customers_id` = '.$strSeparator.$idClient.$strSeparator.';';
+    require_once  'model/dbconnection.php';
+    $queryResult = executeQueryIDU($resultConfirm);
+    return $queryResult;
 
 }
