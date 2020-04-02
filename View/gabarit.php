@@ -21,6 +21,7 @@
     <!--
     CSS
     ============================================= -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="css/linearicons.css">
     <link rel="stylesheet" href="css/font-awesome.min.css">
     <link rel="stylesheet" href="css/bootstrap.css">
@@ -30,6 +31,8 @@
     <link rel="stylesheet" href="css/animate.min.css">
     <link rel="stylesheet" href="css/owl.carousel.css">
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/Article-List.css">
+    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/Accueil.css">
     <link rel="stylesheet" href="css/QuiSommesNous.css">
 </head>
@@ -61,7 +64,7 @@
 </div>
 
 <!-- Footer -->
-<footer class="page-footer font-small indigo" style="background-color: #F2EBDF;margin-top: 20px;">
+<footer class="page-footer font-small indigo" style="background-color: #F2EBDF;margin-top: 40px;">
 
     <!-- Footer Links -->
     <div class="container">

@@ -36,11 +36,8 @@ ob_start();
                 <?php $modulo++;  endforeach; ?>
     </div>
 </div>
-
-
-
-
-
+    </div>
+</div>
 
 <?php
 $contenu = ob_get_clean();

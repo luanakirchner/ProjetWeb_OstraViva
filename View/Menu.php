@@ -11,33 +11,20 @@ ob_start();
         <a href="index.php?action=NousMenus"><h2>Menu / <?=@$_GET['nomChoixMenu'];?></h2></a>
 
     </div>
-    <div >
-        <div class="row">
-            <div class="col-sm-12">
-                <?php $modulo = 0; foreach ($resultMenus as $resultat) :?>
-                <div class="margin30Top">
-                    <div class="row RowMenu ModuloMenu2"<?php if ($modulo%2 == 0):?>style="background-color:#D7D996;"<?php endif; ?> >
-                        <div class="col-sm-3 col-md-2 text-center" style="margin: 5px">
-                            <img src="<?= $resultat ['photo'];?>" class="ImageRonde" height="250" width="250" alt="Avatar">
-                        </div>
-                        <div class="col-sm-5 margin1Left50" style="align-self:  center; margin-top: 5px;">
-                            <div style="text-align: center"> <h5><?= $resultat ['Name'];?></h5></div>
-                            <div style="text-align: center"> <?= $resultat ['description'];?></div>
-                       </div>
-                        <div class="col-sm-1 col-md-2 TextPrixAlign">
-                            <p><?=$resultat['price'];?> CHF</p>
-                        </div>
-                    </div>
-                </div>
-                <?php $modulo++;  endforeach; ?>
-            </div>
+</div>
+<div class="article-list">
+    <div class="container">
+        <div class="row articles">
+            <?php foreach ($resultMenus as $resultat) :?>
+                <div class="col-sm-6 col-md-4 item" >
+                    <img class="img-fluid ImageRonde" src="<?= $resultat ['photo'];?>"  style="font-size: 17px;height: 280px;width: 280px;" alt="Avatar"">
+                    <h3 class="name"><?= $resultat ['Name'];?></h3>
+                    <p class="description"><?= $resultat ['description'];?></p>
+                    <p class="description"><?=$resultat['price'];?> CHF</p></div>
+                <?php endforeach; ?>
         </div>
     </div>
 </div>
-
-
-
-
 
 
 <?php
