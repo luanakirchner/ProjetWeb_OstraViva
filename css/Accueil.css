@@ -51,6 +51,9 @@ p {font-size: 16px;}
     justify-content: center;
     text-align: center;
 }
+.ImageLogo{
+    width: 150px;
+}
 /*-------------------------HOME-----------------------------*/
 .menuText{
     color: gray;
@@ -275,7 +278,15 @@ td{
     margin-left: 25px;
     color: red;
 }
-
+.FormulairePrenom{
+    width: 44%;
+}
+.FormulaireNom{
+    width: 55%;
+}
+.FormulaireTel{
+    width: 69%;
+}
 /*---------------Media screnn --------------------------------*/
 @media screen and (max-width: 575px) {
    .margin1Left50{
@@ -283,6 +294,13 @@ td{
    }
     .TextPrixAlign{
         text-align: center;
+    }
+    .Formulairephone{
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    .ImageLogo{
+        width: 130px;
     }
 
 }

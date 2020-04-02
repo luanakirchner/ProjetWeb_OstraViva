@@ -118,6 +118,7 @@ function ReservationClient($Reservation){
         $_GET["Prenom"] = @$Reservation["Prenom"];
         $_GET["Email"] = @$Reservation["Email"];
         $_GET["Telephone"] = @$Reservation["Telephone"];
+        $_GET[@$Reservation["Horaire"]] = "selected";
         $_GET["Date"] = @$Reservation["Date"];
         $_GET["NbrPersonnes"] = @$Reservation["NbrPersonnes"];
         $_GET["Descpription"] = @$Reservation["Descpription"];
@@ -284,7 +285,7 @@ function EnvoyerEmail($Client,$userHashEmail){
 
     $subject = "Confirmer votre réservation";
     $message ="<HTML><BODY>";
-    $message .= "Bonjour Mr(Mme) $Nom <br/><br/>";
+    $message .= "Bonjour Madame\Monsieur. $Nom <br/><br/>";
     $message .= "Veuillez cliquez sur le lien ci-dessous pour confirmer votre réservation dans notre restaurant<br/>";
     $message .= "<a href = 'http://resto.mycpnv.ch/index.php?action=ConfirmReservation&Hash=$userHashEmail' >Je confirme ma réservation</a><br/>";
     $message .= "Merci pour votre confiance<br/><br/>";

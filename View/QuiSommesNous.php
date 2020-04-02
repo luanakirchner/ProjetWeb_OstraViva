@@ -11,7 +11,7 @@ ob_start();
             <h2>Qui Sommes nous</h2>
         </div>
 </div>
-<div class="QuiNousSommes">
+<div style="min-height: 300px; margin: 15px">
         <div class="TextQuiSommesNous">
             egnaposto utilizzato nel settore della tipografia e della stampa. Lorem Ipsum è
             considerato il testo segnaposto standard sin dal sedicesimo secolo, quando un anonimo

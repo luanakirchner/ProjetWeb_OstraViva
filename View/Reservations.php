@@ -20,10 +20,17 @@ ob_start();
                 <label for="Horaire">Choisir votre horaire *</label>
                 <select id="Horaire" name="Horaire"  class="form-Horaire-Nbrpersonnes">
                     <option value=""></option>
-                    <option value="11:00">11:00</option>
-                    <option value="12:00">12:00</option>
-                    <option value="13:00">13:00</option>
-                    <option value="14:00">14:00</option>
+                    <option value="11:30"<?=@$_GET['11:00']?> >11:30</option>
+                    <option value="12:00"<?=@$_GET['12:00']?>>12:00</option>
+                    <option value="12:30"<?=@$_GET['12:30']?>>12:30</option>
+                    <option value="13:00"<?=@$_GET['13:00']?>>13:00</option>
+                    <option value="13:30"<?=@$_GET['13:30']?>>13:30</option>
+                    <option value="14:00"<?=@$_GET['14:00']?>>14:00</option>
+                    <option value="14:30"<?=@$_GET['14:30']?>>14:30</option>
+                    <option value="18:00"<?=@$_GET['18:00']?>>18:00</option>
+                    <option value="18:30"<?=@$_GET['18:30']?>>18:30</option>
+                    <option value="19:00"<?=@$_GET['19:00']?>>19:00</option>
+                    <option value="19:30"<?=@$_GET['19:30']?>>19:30</option>
                 </select>
             </div>
 
@@ -32,15 +39,15 @@ ob_start();
                 <input type="number" name="NbrPersonnes" min="1" max="30" id="NbrPersonnes" value="<?=@$_GET['NbrPersonnes'];?>" class="form-Horaire-Nbrpersonnes">
             </div>
             <div class="form-group" style="margin-top: 40px">
-                <input type="text"  id="Prenom" name="Prenom"  placeholder="Prénom *" value="<?=@$_GET['Prenom'];?>" style="width: 44%">
-                <input type="text" id="Nom" name="Nom" placeholder="Nom *" value="<?=@$_GET['Nom'];?>" style="width: 55%" >
+                <input type="text"  id="Prenom" name="Prenom" class="Formulairephone FormulairePrenom" placeholder="Prénom *" value="<?=@$_GET['Prenom'];?>">
+                <input type="text" id="Nom" name="Nom" placeholder="Nom *" class="Formulairephone FormulaireNom" value="<?=@$_GET['Nom'];?>" >
             </div>
             <div class="form-group">
                 <input type="Email" id="Email" name="Email" placeholder="Email *" value="<?=@$_GET['Email'];?>" style="width: 100%">
             </div>
             <div class="form-group">
-                <input type="text" id="TelephoneCode" name="TelephoneCode" placeholder="+41" value="<?=@$_GET['TelephoneCode'];?>" style="width: 30%">
-                <input type="text" id="Telephone" name="Telephone" placeholder="Téléphone *" value="<?=@$_GET['Telephone'];?>" style="width: 69%">
+                <input type="text" id="TelephoneCode" name="TelephoneCode" placeholder="+41" value="<?=@$_GET['TelephoneCode'];?>" style="width: 30%; margin-bottom: 3px;">
+                <input type="text" id="Telephone" name="Telephone" placeholder="Téléphone *" class="Formulairephone FormulaireTel" value="<?=@$_GET['Telephone'];?>">
             </div>
             <div class="form-group">
                 <textarea name="Descpription" id="Description"placeholder="Description ou demande partoiculiére" <?=@$_GET['Descpription'];?> style="width: 100%"></textarea>
