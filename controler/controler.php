@@ -284,10 +284,10 @@ function EnvoyerEmail($Client,$userHashEmail){
 
     $subject = "Confirmer votre réservation";
     $message ="<HTML><BODY>";
-    $message .= "Bonjour Mr(Mme) $Nom <br/>";
-    $message .= "Veuillez cliquez sur le lien ci-dessous pour confirmer votre réservation dans notre restaurant Ostra Viva <br/>";
+    $message .= "Bonjour Mr(Mme) $Nom <br/><br/>";
+    $message .= "Veuillez cliquez sur le lien ci-dessous pour confirmer votre réservation dans notre restaurant<br/>";
     $message .= "<a href = 'http://resto.mycpnv.ch/index.php?action=ConfirmReservation&Hash=$userHashEmail' >Je confirme ma réservation</a><br/>";
-    $message .= "Merci pour votre confiance<br/>";
+    $message .= "Merci pour votre confiance<br/><br/>";
     $message .= "Ostra Viva";
     $message .="</BODY></HTML>";
 
@@ -298,21 +298,39 @@ function EnvoyerEmail($Client,$userHashEmail){
     mail($to,$subject,$message, $headers);
 
 }
+function EnvoyerEmailAdm($nom){
 
+    ini_set( 'display_errors', 1 );
+    error_reporting( E_ALL );
+
+    $subject = "Une nouvelle réservation";
+    $message ="<HTML><BODY>";
+    $message .= "Bonjour,";
+    $message .= "Une réservation a été confirmer dans le nom de $nom<br/>";
+    $message .= "Ostra Viva";
+    $message .="</BODY></HTML>";
+
+    $headers = "From: \"Ostra Viva\"<luana.kirchner-bannwart@resto.mycpnv.ch>\n";
+    $headers .= "Reply-To: luana.kirchner-bannwart@resto.mycpnv.ch\n";
+    $headers .= "Content-Type: text/html; charset=\"iso-8859-1\"";
+
+    mail("luanabannwart@gmail.com",$subject,$message, $headers);
+}
 function ConfirmReservation($email){
 
     //Seelctioner le client avec l'email hash
     $Customer = ControlerEmail($email);
 
     if(Count($Customer) == 1){
-        //Recuperer son id
+        //Recuperer ses informations
         $id = $Customer[0]["id"];
-
+        $nomCustomer = $Customer[0]["firstname"]." ". $Customer[0]["lastname"];
         //Modifier la BD
         $confirmOK= ConfirmedReservation($id);
 
         if($confirmOK){
             $_GET["ConfirmeOk"] = "Votre réservation a été confirmée <br> Merci pour votre confiance";
+            EnvoyerEmailAdm($nomCustomer);
         }
         else{
             $_GET["ConfirmeOk"] = "Un erreur se produit, essayer une deuxième fois <br> Si l'erreur persiste appelez-nous";

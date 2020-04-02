@@ -33,10 +33,13 @@ ob_start();
             </div>
             <div class="form-group" >
                 <label for="Image">Image</label><br>
-                <img src="<?=@$_GET['Photo'];?>" class="ImageRonde" height="250" width="250" alt="Avatar"
+                <img src="<?=@$_GET['Photo'];?>" id="photoChange" class="ImageRonde" height="250" width="250" alt="Your image">
             </div>
             <div class="form-group" >
-                <label for="title"style="margin-top: 20px">Title</label><br>
+                Choisir une nouvelle photo: <input class="btn fontsize" type="file" name="addPhoto" onchange="readURL(this);">
+            </div>
+            <div class="form-group" >
+                <label for="title"style="margin-top: 10px">Title</label><br>
                 <input type="text" name="title" id="title" value="<?=@$_GET['title'];?>" style="width: 100%">
             </div>
             <div class="form-group" >
@@ -46,9 +49,6 @@ ob_start();
             <div class="form-group" >
                 <label for="Prix">Prix</label><br>
                 <input type="text" name="Prix"  id="Prix" value="<?=@$_GET['Prix'];?>" style="width: 100%">
-            </div>
-            <div class="form-group" >
-                Choisir une nouvelle photo: <input class="btn fontsize" type="file" name="addPhoto">
             </div>
             <div class="form-group">
                 <a href="index.php?action=EditPlat&idPlat=0""><button type="button" class="btn" style="margin-bottom:  20px">Vider les champs</button></a>
